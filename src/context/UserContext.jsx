@@ -68,7 +68,7 @@ export const UserProvider = ({children}) => {
             console.log(res);
             setUser(res.data)
             setIsAuthenticated(true)
-            getUserProfile(res.data.data._id)
+            // getUserProfile(res.data.data._id)
 
 
         } catch (error) {
