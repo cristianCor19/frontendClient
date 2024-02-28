@@ -147,51 +147,51 @@ export const UserProvider = ({children}) => {
     }, [errors])
 
     //funcion para realizar las verificaciones de seguridad respecto al manejo de tokens
-    useEffect(() => {
-        async function checklogin () {
-            const cookies = Cookies.get()
+    // useEffect(() => {
+    //     async function checklogin () {
+    //         const cookies = Cookies.get()
             
 
-            if(!cookies.token){
+    //         if(!cookies.token){
                 
-                setIsAuthenticated(false)
-                setLoading(false)
-                return;
-            }
-            const res = await verifyUserRoleTokenRequest(cookies.token)
-            console.log(res.data.role);
-                if (res.data.role != 'customer') {
-                    console.log(' verification of roles');
-                    setIsAuthenticated(false)
-                    setLoading(false)
-                    return;
-                }
+    //             setIsAuthenticated(false)
+    //             setLoading(false)
+    //             return;
+    //         }
+    //         const res = await verifyUserRoleTokenRequest(cookies.token)
+    //         console.log(res.data.role);
+    //             if (res.data.role != 'customer') {
+    //                 console.log(' verification of roles');
+    //                 setIsAuthenticated(false)
+    //                 setLoading(false)
+    //                 return;
+    //             }
 
-                try {
+    //             try {
 
-                    console.log('prueba token');
-                    const res = await verifyUserTokenRequest(cookies.token)
-                    // console.log(res);
-                    if(!res.data){
-                        return setIsAuthenticated(false)
-                    }
+    //                 console.log('prueba token');
+    //                 const res = await verifyUserTokenRequest(cookies.token)
+    //                 // console.log(res);
+    //                 if(!res.data){
+    //                     return setIsAuthenticated(false)
+    //                 }
     
-                    setIsAuthenticated(true)
-                    setUser(res.data)
-                    setLoading(false)
-                    getUserProfile(res.data._id)
+    //                 setIsAuthenticated(true)
+    //                 setUser(res.data)
+    //                 setLoading(false)
+    //                 getUserProfile(res.data._id)
 
                     
-                } catch (error) {
+    //             } catch (error) {
                     
-                    setIsAuthenticated(false)
-                    setLoading(false)
-                }
+    //                 setIsAuthenticated(false)
+    //                 setLoading(false)
+    //             }
             
-        }   
+    //     }   
         
-        checklogin()
-    }, [])
+    //     checklogin()
+    // }, [])
 
     return (
         <UserContext.Provider
