@@ -2,7 +2,7 @@
 import '../styles/login.css'
 import { useForm } from "react-hook-form";
 import { useUser } from "../context/UserContext";
-import { Link  } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { useEffect } from "react";
 
 function LoginPage() {
@@ -12,16 +12,17 @@ function LoginPage() {
     formState: { errors },
   } = useForm();
   const { signin, errors: signinErrors, isAuthenticated } = useUser();
-  
+  const navigate = useNavigate()
 
   const onSubmit = handleSubmit((data) => {
     signin(data);
   });
 
   useEffect(() => {
-    // if (isAuthenticated) {
-    // }
-    window.location.href = "/prueba";
+    if (isAuthenticated) {
+      navigate("prueba")
+    }
+    // window.location.href = "/prueba";
   }, []);
 
   return (
