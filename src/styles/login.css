@@ -1,0 +1,127 @@
+
+.principal {
+  height: 90vh;
+  background: linear-gradient(rgba(30, 77, 109, 0.78), rgba(2, 55, 90, 0.78)),
+    url(img/fondo1.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-size: 100% 150%;
+}
+
+.container--login {
+  padding-top: 180px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form--box{
+    margin-top: -50px;
+}
+
+.cabecera--form {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecera--txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.title--general,
+.title--general-1 {
+  color: #fff;
+  padding-right: 30px;
+  font-weight: -400;
+  flex-direction: column;
+  font-size: 3rem;
+}
+
+.title--general {
+  margin-bottom: -40px;
+}
+
+.logo--login {
+  width: 70px;
+  height: 90px;
+}
+
+.container--input {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.input-field {
+  padding-left: 30px; /* Ajusta este valor según el tamaño de tu icono */
+}
+
+.container--input i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.7em;
+}
+
+
+.title--form {
+  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form--box input[type="email"],
+.form--box input[type="password"],
+.form--box button[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  padding: 20px 10px;
+  text-align: center;
+  border: 1.8px solid #ffffffdc;
+  width: 400px;
+  outline: none;
+  color: white;
+  border-radius: 2px;
+}
+
+
+.container--login ::placeholder {
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+}
+
+.container--adiccionales {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.login--link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.form--box button[type="submit"] {
+  margin-top: 50px;
+  width: 300px;
+  border: 2.8px solid #ffffffdc;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.form--box button[type="submit"]:hover {
+  background: linear-gradient(rgba(1, 24, 40, 0.68), rgba(2, 46, 75, 0.68));
+}
