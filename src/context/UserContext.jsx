@@ -65,7 +65,7 @@ export const UserProvider = ({children}) => {
         try{
             console.log('entro login');
             const res = await loginUserRequest(user)
-            // console.log();
+            console.log(res);
             setUser(res.data)
             setIsAuthenticated(true)
             getUserProfile(res.data.data._id)
