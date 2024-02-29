@@ -38,6 +38,7 @@ export const UserProvider = ({children}) => {
     const [errors, setErrors] = useState([])
     const [loading, setLoading] = useState(true)
     
+    
 
 
     //funcion para el registro de usuarios
@@ -68,7 +69,8 @@ export const UserProvider = ({children}) => {
             console.log(res);
             setUser(res.data)
             setIsAuthenticated(true)
-            // getUserProfile(res.data.data._id)
+            localStorage.setItem('token', res.data.token);
+            getUserProfile(res.data.token, res.data.data._id)
 
 
         } catch (error) {
@@ -80,9 +82,9 @@ export const UserProvider = ({children}) => {
 
     }
 
-    const getUserProfile = async(id)=>{
+    const getUserProfile = async(token, id)=>{
 
-        const res = await getUserProfileRequest(id)
+        const res = await getUserProfileRequest(token, id)
         setProfile(res.data)
     }
 
@@ -129,7 +131,7 @@ export const UserProvider = ({children}) => {
     //funcion para desloguearse
     const logout = () => {
         console.log('salir del login');
-        Cookies.remove('token')
+        localStorage.removeItem('token')
         setUser(null)
         setIsAuthenticated(false)
     }
@@ -146,52 +148,54 @@ export const UserProvider = ({children}) => {
         }
     }, [errors])
 
-    //funcion para realizar las verificaciones de seguridad respecto al manejo de tokens
-    // useEffect(() => {
-    //     async function checklogin () {
-    //         const cookies = Cookies.get()
-            
+    // funcion para realizar las verificaciones de seguridad respecto al manejo de tokens
+    useEffect(() => {
+        async function checklogin () {
+            // const cookies = Cookies.get()
 
-    //         if(!cookies.token){
-                
-    //             setIsAuthenticated(false)
-    //             setLoading(false)
-    //             return;
-    //         }
-    //         const res = await verifyUserRoleTokenRequest(cookies.token)
-    //         console.log(res.data.role);
-    //             if (res.data.role != 'customer') {
-    //                 console.log(' verification of roles');
-    //                 setIsAuthenticated(false)
-    //                 setLoading(false)
-    //                 return;
-    //             }
+            const token = localStorage.getItem('token');
 
-    //             try {
+            console.log(token);
+            if(!token){
+                console.log('entro hiii');
+                setIsAuthenticated(false)
+                setLoading(false)
+                return;
+            }
+            const res = await verifyUserRoleTokenRequest(token)
+            console.log(res.data.role);
+                if (res.data.role != 'customer') {
+                    console.log(' verification of roles');
+                    setIsAuthenticated(false)
+                    setLoading(false)
+                    return;
+                }
 
-    //                 console.log('prueba token');
-    //                 const res = await verifyUserTokenRequest(cookies.token)
-    //                 // console.log(res);
-    //                 if(!res.data){
-    //                     return setIsAuthenticated(false)
-    //                 }
+                try {
+
+                    console.log('prueba token');
+                    const res = await verifyUserTokenRequest(token)
+                    // console.log(res);
+                    if(!res.data){
+                        return setIsAuthenticated(false)
+                    }
     
-    //                 setIsAuthenticated(true)
-    //                 setUser(res.data)
-    //                 setLoading(false)
-    //                 getUserProfile(res.data._id)
+                    setIsAuthenticated(true)
+                    setUser(res.data)
+                    setLoading(false)
+                    getUserProfile(token, res.data._id)
 
                     
-    //             } catch (error) {
+                } catch (error) {
                     
-    //                 setIsAuthenticated(false)
-    //                 setLoading(false)
-    //             }
+                    setIsAuthenticated(false)
+                    setLoading(false)
+                }
             
-    //     }   
+        }   
         
-    //     checklogin()
-    // }, [])
+        checklogin()
+    }, [])
 
     return (
         <UserContext.Provider

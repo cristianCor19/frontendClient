@@ -20,10 +20,10 @@ function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("prueba")
+      navigate("/prueba")
+      // window.location.href = "/prueba";
     }
-    // window.location.href = "/prueba";
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <div className='principal login-test'>
