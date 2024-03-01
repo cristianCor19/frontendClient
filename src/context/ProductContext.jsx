@@ -175,7 +175,7 @@ export const ProductProvider = ({ children }) => {
             console.log('respuesta despues');
             console.log(res);
             console.log(payUrl);
-            window.location.href = payUrl; 
+            // window.location.href = payUrl; 
         } catch (error) {
             console.error('Error obtaining the payment url', error);
         }
