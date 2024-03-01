@@ -75,8 +75,8 @@ function Navbar() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 
-                {/* <Link to={'/'} className='text-gray-300 hover:bg-gray-700 hover:text-white     rounded-md px-3 py-0 font-medium title-main'>Infotect <br /> Solutions
-                </Link> */}
+                <Link to={'/'} className='text-gray-300 hover:bg-gray-700 hover:text-white     rounded-md px-3 py-0 font-medium title-main'>Infotect <br /> Solutions
+                </Link>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-6 sm:block">
@@ -185,12 +185,12 @@ function Navbar() {
                               <button className='btn-clear-all' >
                                 
                               </button>
-                              <a href='/cartPage' >
+                              <Link to={'/cartPage'} >
                               
                                 <button className='btn-clear-all' >
                                   Ver carrito
                                 </button>
-                              </a>
+                              </Link>
                             </>
                           ) : (
                             <p className='cart-empty'>El carrito está vacío</p>
@@ -291,12 +291,12 @@ function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-5 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
@@ -304,7 +304,7 @@ function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -317,7 +317,7 @@ function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-1 pt-1">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}

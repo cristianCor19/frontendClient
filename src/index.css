@@ -264,8 +264,8 @@ body{
 
 
 /*media para tamaños superior 1480*/
-@media (max-width: 767px) {
-    .grid-cols-2 {
+@media (min-width: 590px) {
+    .cols-main  {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 	.input-search{
@@ -273,7 +273,22 @@ body{
 	}
 }
 
+@media (min-width: 860px) {
+    .cols-main  {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+	
+}
+
+@media (min-width: 1200px) {
+    .cols-main  {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+	
+}
+
 @media (min-width: 1480px){
+	
 	.container-test-1 .margin-all-page{
 		margin-left: 11%;
 		margin-right: 12%;

@@ -14,7 +14,6 @@ import {
     getUserProfileRequest
 }from '../api/user'
 
-import Cookies from 'js-cookie'
 
 export const UserContext = createContext()
 
@@ -52,6 +51,9 @@ export const UserProvider = ({children}) => {
                 console.log('entro');
                 setUser(res.data)
                 setIsAuthenticated(true)
+                localStorage.setItem('token', res.data.token);
+                getUserProfile(res.data.token, res.data.data._id)
+
             }
         } catch (error) {
             if(Array.isArray(error.response.data)){

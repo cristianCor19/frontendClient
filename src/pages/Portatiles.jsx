@@ -19,7 +19,7 @@ function Portatiles() {
   const filteredProducts = products.filter((product) => product.type === "Portátiles");
 
   return (
-    <div className="grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-4  test-al margin-all-page">
+    <div className="grid  cols-main test-al margin-all-page">
       {filteredProducts.length === 0 ? (
         <p className="">No hay productos</p>
       ) : (

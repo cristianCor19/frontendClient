@@ -1,7 +1,7 @@
 import axios from "./axios";
 
 
-export const getProductsCartRequest = async() => axios.get(`/payment/obtainAllProductsCart`)
+export const getProductsCartRequest = async(token) => axios.get(`/payment/obtainAllProductsCart/${token}`)
 
 export const sendCartToServerRequest = async(cart, id) => axios.post(`/payment/createCart/${id}`, cart,);
 

@@ -53,10 +53,11 @@ export const ProductProvider = ({ children }) => {
 
     const getProduct = async (id) => {
         try {
-            const resCart = await getProductsCartRequest()
-            const dataCart = resCart.data.data
-            setCountProducts(dataCart.length)
+            // const resCart = await getProductsCartRequest()
+            // const dataCart = resCart.data.data
+            // setCountProducts(dataCart.length)
             const res = await getProductRequest(id);
+            console.log(res);
             setProduct(res.data.data);
         } catch (error) {
             console.log(error);
@@ -125,7 +126,9 @@ export const ProductProvider = ({ children }) => {
     const getProductsCart = async() => {
         try {
             console.log('entro test');
-            const res = await getProductsCartRequest()
+            const token = localStorage.getItem('token');
+
+            const res = await getProductsCartRequest(token)
             console.log(res);
             const dataCart = res.data.data.carts
             const dataTotal = res.data.data.total
@@ -180,10 +183,11 @@ export const ProductProvider = ({ children }) => {
     useEffect( () => {
         async function loadDataCart(){
             
-     
+                const token = localStorage.getItem('token');
+
     
                 console.log('test load');
-                const res = await getProductsCartRequest()
+                const res = await getProductsCartRequest(token)
                 const dataCart = res.data.data.carts
                 setCountProducts(dataCart.length)
         }
