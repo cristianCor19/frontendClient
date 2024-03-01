@@ -168,10 +168,13 @@ export const ProductProvider = ({ children }) => {
     const createPay = async(cartProducts) => {
      
         try {
-
+            console.log('respuesta antes');
+            
             const res = await createPayRequest(cartProducts)
             const payUrl = res.data.url
+            console.log('respuesta despues');
             console.log(res);
+            console.log(payUrl);
             window.location.href = payUrl; 
         } catch (error) {
             console.error('Error obtaining the payment url', error);
