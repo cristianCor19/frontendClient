@@ -7,7 +7,7 @@ export const loginUserRequest = async (user) => axios.post(`/user/login`, user)
 
 export const getUserProfileRequest = async (token, id) => axios.get(`/user/profile/${token}`, id)
 
-export const updatePasswordRecoveryRequest = async (user) => axios.post(`/user/updatePasswordRecovery`, user)
+export const updatePasswordRecoveryRequest = async (user) => axios.put(`/user/updatePasswordRecovery`, user)
 
 export const searchRecoveryRequest = async (email) => axios.post(`/user/sendEmail/email`, email)
 
