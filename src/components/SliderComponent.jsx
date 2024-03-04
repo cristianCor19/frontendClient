@@ -40,20 +40,20 @@ function SliderComponent () {
     return (
        
         <div className="relative">
-           <ul id="slider" className="px-10">
-                <li className="h-[70vh] relative ">
+           <ul id="slider" className="">
+                <li className="h-[50vh] relative ">
                     <img className="h-full object-cover w-full" src={slider2} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold text-white my-auto w-full text-center p-20">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
-                <li className="h-[70vh] relative hidden">
+                <li className="h-[50vh] relative hidden">
                     <img className="h-full object-cover w-full" src={slider3} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold text-white my-auto w-full text-center p-20">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
-                <li className="h-[70vh] relative hidden">
+                <li className="h-[50vh] relative hidden">
                     <img className="h-full object-cover w-full" src={slider1} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold text-white my-auto w-full text-center p-20">La mejor tecnología al alcance de tus manos </h2>

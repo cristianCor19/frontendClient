@@ -1,4 +1,3 @@
-<link  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 import '../styles/login.css'
 import { useForm } from "react-hook-form";
 import { useUser } from "../context/UserContext";

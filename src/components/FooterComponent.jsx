@@ -1,3 +1,5 @@
+import '../styles/footer.css'
+
 function FooterComponent (){
     return(
         <div>
@@ -8,7 +10,7 @@ function FooterComponent (){
                 <a href="" className="icon__link"><i className="fa-brands fa-instagram"></i></a>
             </div>
             <div className="container__copy">
-                <p className="copy">Muebles Sogamoso. Todos los derechos reservados © 2022</p>
+                <p className="copy">Infotect Solutions. Todos los derechos reservados © 2024</p>
             </div>
             </footer>
         </div>

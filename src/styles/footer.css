@@ -1,3 +1,20 @@
-@layer components{
-    
+
+.container__footer{  
+    text-align: center;
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+    opacity: 1;
+    /* position: absolute;  */
+    bottom: 0; /* Coloca el contenedor en la parte inferior de la ventana */
+    width: 100%; /* Opcional: Para que ocupe todo el ancho */
+    color: white;
 }
+
+.container__redes-sociales{
+    padding: 22px 0px 20px 0px;
+    border-bottom: 1px solid gray;
+}
+
+.container__copy{
+    padding: 32px 0px 60px 0px;
+}
+    
