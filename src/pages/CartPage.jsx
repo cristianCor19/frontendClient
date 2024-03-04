@@ -18,8 +18,8 @@ function CartPage(){
         <div className="margin-all-page">
             
             <div className="p-5 bg-gray-100">
+                <h1 className="text-xl mb-2">Your orders</h1>
                 <div className="overflow-auto rounded-lg shadow hidden md:block">
-                    <h1 className="text-xl mb-2">Your orders</h1>
                     <table className="w-full">
                         <thead className="bg-gray-50 border-b-2 border-gray-200">
                             <tr>
@@ -50,6 +50,34 @@ function CartPage(){
                         </tbody>
                     </table>
                 </div>
+                
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+                {cartProducts.map((product) => (
+
+                
+                    <div className="bg-white space-y-3 p-4 rounded-lg shadow" key={product._id}>
+                        <div className="flex items-center space-x-2 text-sm">
+                        
+                            <div>
+                                <a href="#" className="text-blue-500 font-bold hover:underline">#1000</a>
+                            </div>
+                            <div className="text-gray-500"></div>
+                            <div>
+                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{product.name}</span>
+                            </div>
+                        </div>
+                        <div className="text-sm text-gray-700">
+                            <img src={product.image} alt="" />
+                        </div>
+                        <div className="text-sm font-medium text-black text-center">
+                            Precio: {product.price}
+                        </div>
+                    </div>
+                ))
+                }
+                </div>
+
                 <div>Total a pagar {total}</div>
                 <button className="bg-red-500" onClick={() =>{
                     onCleanCart(cartProducts)
@@ -61,26 +89,6 @@ function CartPage(){
                 }}>
                     Pay
                 </button>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-                    <div className="bg-white space-y-3 p-4 rounded-lg shadow">
-                        <div className="flex items-center space-x-2 text-sm">
-                            <div>
-                                <a href="#" className="text-blue-500 font-bold hover:underline">#1000</a>
-                            </div>
-                            <div className="text-gray-500">10/10/2021</div>
-                            <div>
-                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">Delivered</span>
-                            </div>
-                        </div>
-                        <div className="text-sm text-gray-700">
-                            Kring New Fit office chair, mesh + PU, black
-                        </div>
-                        <div className="text-sm font-medium text-black">
-                            $200.00
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     )

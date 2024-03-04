@@ -1,8 +1,11 @@
+import SliderComponent from "../components/SliderComponent"
+import FooterComponent from "../components/FooterComponent"
+
 function HomePage () {
     return (
-        <div>Esta es la pagina de inicio
-
-
+        <div>
+            <SliderComponent></SliderComponent>
+            <FooterComponent></FooterComponent>
         </div>
     )
 }

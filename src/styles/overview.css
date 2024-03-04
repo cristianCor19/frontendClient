@@ -1,0 +1,16 @@
+
+
+@media (min-width: 600px){
+
+    .overview-column{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+       
+    }
+}
+
+@media (min-width: 1000px){
+    .overview-column{
+        grid-template-columns: 70% 30%;
+        height: 87vh;
+    }
+}
