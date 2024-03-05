@@ -39,36 +39,36 @@ function SliderComponent () {
        // Actualiza esto con el número total de slides
     return (
        
-        <div className="relative">
+        <div className="relative main-slider">
            <ul id="slider" className="">
-                <li className="h-[50vh] relative ">
-                    <img className="h-full object-cover w-full" src={slider2} alt="" />
+                <li className="h-[50vh] relative">
+                    <img className="h-full object-cover w-full slider-image" src={slider2} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
-                        <h2 className="text-4xl font-bold text-white my-auto w-full text-center p-20">La mejor tecnología al alcance de tus manos </h2>
+                        <h2 className="text-4xl font-bold  my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
                 <li className="h-[50vh] relative hidden">
-                    <img className="h-full object-cover w-full" src={slider3} alt="" />
+                    <img className="h-full object-cover w-full slider-image" src={slider3} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
-                        <h2 className="text-4xl font-bold text-white my-auto w-full text-center p-20">La mejor tecnología al alcance de tus manos </h2>
+                        <h2 className="text-4xl font-bold  my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
                 <li className="h-[50vh] relative hidden">
-                    <img className="h-full object-cover w-full" src={slider1} alt="" />
+                    <img className="h-full object-cover w-full slider-image" src={slider1} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
-                        <h2 className="text-4xl font-bold text-white my-auto w-full text-center p-20">La mejor tecnología al alcance de tus manos </h2>
+                        <h2 className="text-4xl font-bold my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
             </ul>   
             
-            <div className="absolute px-5 flex h-full w-full top-0 left-0 ">
-                <div className="my-auto  w-full flex justify-between">
-                    <button onClick={prev} className="bg-white p-3 rounded-full bg-opacity-80 shadow-lg">
+            <div className="absolute px-5  h-full w-full top-0 left-0 container--rows">
+                <div className="my-auto w-full  justify-between container--rows">
+                    <button onClick={prev} className="bg-white p-3 rounded-full bg-opacity-80 shadow-lg icon-rows">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
                         </svg>
                     </button>
-                    <button onClick={next} className="bg-white p-3 rounded-full bg-opacity-80 shadow-lg">
+                    <button onClick={next} className="bg-white p-3 rounded-full bg-opacity-80 shadow-lg icon-rows">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                         </svg>

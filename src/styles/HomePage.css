@@ -1,9 +1,52 @@
-.container__favorites{
+/* beging styles of slider */
 
+.text-slider::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    height: 50vh;
+}
+
+.icon-rows{
+    z-index: 1;
+}
+
+.text-slider{
+    z-index: 1;
+    color: white;
+}
+
+.container--rows{
+    display: none;
+}
+
+.main-slider:hover .container--rows{
+    display: flex;
+}
+
+/* ending syles slider */
+
+.container__favorites{
     top: 80px;
     position: relative;
     overflow: hidden;
     margin-bottom: 120px;
+}
+
+.container__favorites::before{
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    height: 560px;
+    pointer-events: none;
 }
 
 .container__ubicacion{
@@ -20,10 +63,13 @@
     transition: all 500ms ease;
 }
 
+
+/* 
 .ubicacion__img:hover{
     transform: scale(1.3);
     cursor: pointer;
-}
+} */
+
 
 .container__facebook{
     width: 100%; 
@@ -39,10 +85,10 @@
     transition: all 500ms ease;
 }
 
-.facebook__img:hover{
+/* .facebook__img:hover{
     transform: scale(1.3);
     cursor: pointer;
-}
+} */
 
 .ubicacion__description{
     position: absolute;
@@ -89,9 +135,9 @@
 
     
     .container__favoritos{
-        grid-template-columns: repeat(4, 1fr);
-        
+        grid-template-columns: repeat(4, 1fr); 
     }
+
     
     .caja__img{
         height: 300px;

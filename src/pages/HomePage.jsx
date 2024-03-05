@@ -16,7 +16,7 @@ function HomePage () {
                     </div>
                 </div>
                 <div className="container__facebook">
-                    <img src="/img/favorite2.jpg" alt="" className="facebook__img"/>
+                    <img src="/img/favorite2.jpg" alt="" className="facebook__img img-favorites"/>
                     <div className="facebook__description">
                         <h2 className="facebook__title">Síguenos en Facebook</h2>
                         <a href="" className="facebook__link">Facebook

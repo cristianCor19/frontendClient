@@ -2,34 +2,42 @@ import '../styles/login.css'
 import { useForm } from "react-hook-form";
 import { useUser } from "../context/UserContext";
 import { Link, useNavigate  } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function LoginPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const { signin, errors: signinErrors, isAuthenticated } = useUser();
   const navigate = useNavigate()
+  const [password, setPassword] = useState("");
 
   const onSubmit = handleSubmit((data) => {
     signin(data);
+    console.log(isAuthenticated);
+    if (!isAuthenticated) {
+      console.log('entro change password');
+      setPassword("");
+    }
   });
 
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/prueba")
-      // window.location.href = "/prueba";
     }
+
   }, [isAuthenticated]);
 
   return (
     <div className='principal login-test'>
         <div className="container--login">
                 {signinErrors.map((error, i) => (
-                  <div className="bg-red-500 p-2 text-white text-center" key={i}>
+                  <div className="bg-red-500 text-white text-center text-errors" key={i}>
                     {error}
+          
                   </div>
                 ))}
                 <form onSubmit={onSubmit} className="form--box">
@@ -42,7 +50,11 @@ function LoginPage() {
                     </div>
                     <div className="container--input">
                         <input type="password" name="user" id="user" required placeholder="Digite su contraseña"
-                        {...register("password", { required: true })}/>
+                        // {...register("password", { required: true })}/>
+                        {...register("password", { required: true })}
+                        value={password} // Agrega el valor del estado local
+                        onChange={(e) => setPassword(e.target.value)} // Actualiza el estado local
+                        />
                         <i className='bx bxs-lock'> | </i>
                         {errors.password && (
                         <p className="text-red-500">Password is required</p>

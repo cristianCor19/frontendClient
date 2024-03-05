@@ -23,7 +23,8 @@ function Navbar() {
   const {logout, isAuthenticated, profile} = useUser()
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(false);
-  const { countProducts, total,onDeleteProduct, cartProducts, getProductsCart,  } = useProduct();
+  const [propSearch, setPropSearch] = useState('');
+  const { countProducts, total,onDeleteProduct, cartProducts, getProductsCart, getSearchProduct} = useProduct();
   const cartProductsRef = useRef(null);
 
   const getDataCart = () => {
@@ -31,6 +32,14 @@ function Navbar() {
     getProductsCart()
     
   };
+
+  const searchProduct = () => {
+    console.log(propSearch);
+    if(propSearch){
+
+      getSearchProduct(propSearch)
+    }
+  }
 
 
   useEffect(() => {
@@ -87,8 +96,13 @@ function Navbar() {
                       </Link>
                       <div className="relative icon-search">
 
-                        <input type="" className='input-search mt-4' placeholder='Buscar productos,marcas y demas'/>
-                      
+                        <input type="text" className='input-search mt-4' placeholder='Buscar productos,marcas y demas' value={propSearch}
+                        onChange={(e) => setPropSearch(e.target.value)}/>
+                        <button className='p-1 bg-red-600' onClick={() =>{
+
+                          searchProduct()
+                        }
+                        }>buscar</button>
                       {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
                       </div>
                     

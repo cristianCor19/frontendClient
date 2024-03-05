@@ -16,6 +16,7 @@ import ThanksPage from "./pages/ThanksPage"
 import MonitoresPage from "./pages/MonitoresPage"
 import PartesPcPage from "./pages/PartesPcPage"
 import PerifericosPage from "./pages/PerifericosPage"
+import ProductPage from "./pages/ProductPage"
 
 function App(){
   
@@ -37,6 +38,7 @@ function App(){
                   <Route path='/monitores'  element={<MonitoresPage />} />
                   <Route path='/partesPc' element={<PartesPcPage />} />
                   <Route path='/perifericos' element={<PerifericosPage />} />
+                  <Route path='/searchProduct' element={<ProductPage />} />
                   <Route path='/updatePasswordRecovery/:id' element={<UpdatePasswordRecovery />} />
                   <Route path='/overview/:id' element={<OverviewProduct />} />
                   <Route element={<ProtectedRoute />} >

@@ -2,13 +2,14 @@ import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import {useUser} from '../context/UserContext'
 
-import { getProductsRequest, getProductRequest} from "../api/product";
+import { getProductsRequest, getProductRequest,getSearchProductRequest} from "../api/product";
 import { 
     createPayRequest,
     sendCartToServerRequest, 
     getProductsCartRequest,
     deleteProductCartRequest,
-    deleteAllProductsCartRequest
+    deleteAllProductsCartRequest,
+    
     
  } from "../api/payment";
 
@@ -33,6 +34,7 @@ export const ProductProvider = ({ children }) => {
     
     const [cartProducts, setCartProducts] = useState([])
     const [products, setProducts] = useState([]);
+    const[prodcuctSearch, setProdcuctSearch] = useState([]);
     const [product, setProduct] = useState([]);
     const [cart, setCart] = useState([]);
     const [countProducts, setCountProducts] = useState(0);
@@ -63,6 +65,17 @@ export const ProductProvider = ({ children }) => {
             console.log(error);
         }
     };
+
+    const getSearchProduct =  async(search) => {
+        console.log(search);
+        const res = await getSearchProductRequest(search)
+        // console.log(res.status);
+        if(res.status === 200){
+            console.log(res.data);
+            setProdcuctSearch(res.data)
+            navigate('/searchProduct')
+        }
+    }
 
     const addToCart = async(productCart) => {
         console.log(isAuthenticated);
@@ -208,13 +221,16 @@ export const ProductProvider = ({ children }) => {
                 countProducts,
                 total,
                 cartProducts,
+                prodcuctSearch,
                 getProducts,
                 getProduct,
+                getSearchProduct,
                 addToCart,
                 getProductsCart,
                 onDeleteProduct,
                 onCleanCart,
                 createPay,
+                
     
             }}
         >
