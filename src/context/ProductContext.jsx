@@ -40,6 +40,7 @@ export const ProductProvider = ({ children }) => {
     const [countProducts, setCountProducts] = useState(0);
     const [total, setTotal] = useState(0);
     const navigate = useNavigate()
+    let valor = 0
 
     
 
@@ -142,7 +143,7 @@ export const ProductProvider = ({ children }) => {
             const token = localStorage.getItem('token');
 
             const res = await getProductsCartRequest(token)
-            console.log(res);
+           
             const dataCart = res.data.data.carts
             const dataTotal = res.data.data.total
             setTotal(dataTotal)
@@ -150,9 +151,11 @@ export const ProductProvider = ({ children }) => {
             setCountProducts(dataCart.length)
             
             const consolidatedCart = consolidateCartProducts(dataCart);
-            setCartProducts(consolidatedCart)
+            
 
             
+            setCartProducts(consolidatedCart)
+
             
         } catch (error) {
             console.log(error);
@@ -199,6 +202,7 @@ export const ProductProvider = ({ children }) => {
     useEffect( () => {
         async function loadDataCart(){
             
+
                 const token = localStorage.getItem('token');
 
     

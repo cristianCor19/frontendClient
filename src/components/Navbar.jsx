@@ -94,16 +94,19 @@ function Navbar() {
                       <Link to={'/'} className='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-0 font-medium title-main'>
                         Infotect <br /> Solutions
                       </Link>
-                      <div className="relative icon-search">
+                      <div className="relative ">
 
                         <input type="text" className='input-search mt-4' placeholder='Buscar productos,marcas y demas' value={propSearch}
                         onChange={(e) => setPropSearch(e.target.value)}/>
-                        <button className='p-1 bg-red-600' onClick={() =>{
+                        <button className='p-0 bg-white icon-search' onClick={() =>{
 
                           searchProduct()
                         }
-                        }>buscar</button>
-                      {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
+                        }>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-11 h-5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        </button>
                       </div>
                     
                   </div>
@@ -191,14 +194,12 @@ function Navbar() {
                                 ))}
                               </div>
 
-                              <div className='cart-total'>
+                              <div className='cart-total '>
                                 <h3>Total:</h3>
-                                <span className='total-pagar'>${total}</span>
+                                <span className='total-pagar '>${total}</span>
                               </div>
 
-                              <button className='btn-clear-all' >
-                                
-                              </button>
+                             
                               <Link to={'/cartPage'} >
                               
                                 <button className='btn-clear-all' >
@@ -297,12 +298,28 @@ function Navbar() {
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
+                  
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    
                   )}
                 </Disclosure.Button>
+                  <div className="relative">
+
+                    <input type="text" className='input-search mt-0' placeholder='Buscar productos,marcas y demas' value={propSearch}
+                    onChange={(e) => setPropSearch(e.target.value)}/>
+                    <button className=' bg-white icon-search' onClick={() =>{
+
+                      searchProduct()
+                    }
+                    }>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-11 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                      </svg>
+                  </button>
+                  </div>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-5 sm:block">

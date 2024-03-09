@@ -6,6 +6,7 @@
 /* test estilos generales para responsive */
 
 *{
+	
 	margin: 0;
 	padding: 0px;
 	box-sizing: border-box;
@@ -16,6 +17,7 @@ html{
 }
 
 body{
+	background: rgb(226 232 240);
 	font-size: 1rem;
 }
 
@@ -235,10 +237,11 @@ body{
 .input-search{
   width: 250px;
   border-radius: 2px;
-  cursor: pointer;
   padding: 10px;
   line-height: -10;
 }
+
+
 
 /* titulo principal */
 .title-main{
@@ -260,6 +263,25 @@ body{
 	top: 0;
 	z-index: 100;
 }
+/*/
+
+/*estilos boton de ver carrito navbar*/
+
+.btn-clear-all{
+	position: relative;
+	background-color: rgb(42, 107, 42);
+	padding: 6px;
+	border-radius: 5px;
+	margin-left: 26%;
+	font-weight: bold;
+	color: white;
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+
+
+
 
 
 
@@ -268,9 +290,48 @@ body{
 		width: 290px;
 	}
 
+	.btn-clear-all{
+		margin-left: 16%;
+
+	}
+
+	.input-search{
+		width: 280px;
+	}
+
+	.icon-search{
+		position: absolute;
+		margin-top: 10px;
+		color: gray;
+		right: 4px;
+	}
+
 }
 
 
+@media (min-width: 550px){
+	.icon-search{
+		position: absolute;
+		margin-top: 10px;
+		color: gray;
+		right: 4px;
+	}
+
+	.input-search{
+		width: 340px;
+	}
+}
+
+
+@media (min-width: 640px){
+	.icon-search{
+		margin-top: 27px;
+	}
+
+	.input-search{
+		width: 280px;
+	}
+}
 
 /*media para tamaños superior 1480*/
 @media (min-width: 590px) {

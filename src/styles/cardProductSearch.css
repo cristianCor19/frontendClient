@@ -1,3 +1,7 @@
+.margin-all-search-products{
+    background-color: white;
+}
+
 .card-search-product-general{
     margin-top: 10px;
     /* display: grid; */
@@ -5,11 +9,9 @@
 
 .margin-general{
     grid-template-columns: 45% 55%;
-    /* justify-content: space-between; */
-    /* border-left: 2px solid green;
-    border-right: 2px solid green; */
     
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    /* border-bottom: 1px solid gray; */
     
 }
 
@@ -20,10 +22,7 @@
    
 }
 
-.image-search-product{
-    /* width: 150px; */
-    /* background: blue; */
-}
+
 
 .size-image-product{
     margin: auto;
@@ -32,10 +31,7 @@
     object-fit: cover;
 }
 
-.description-product-search{
-    /* padding-top: 20px;
-    padding-left: 30px; */
-}
+
 
 
 
@@ -48,10 +44,7 @@
     
 }
 
-.product-search-title{
-    /* margin: 0; */
 
-}
 .button-love-search{
     /* display: grid; */
     padding-top: 10px;
@@ -62,6 +55,65 @@
 }
 
 @media (min-width: 640px) {
-    
+    .margin-all-search-products{
+        margin-left: 8%;
+        margin-right: 5%;
+        border: 1px solid rgb(198, 198, 198);
+        
+    }
    
 }
+
+@media (min-width: 768px) {
+    .margin-all-search-products{
+        margin-left: 7%;
+        margin-right: 5%;
+    }
+    .size-image-product{
+        height: 150px;
+    }
+
+    .margin-general{
+        
+        margin-bottom: 50px;
+        
+    }
+   
+}
+
+@media (min-width: 1024px) {
+    .margin-all-search-products{
+        margin-left: 6%;
+        margin-right: 5%;
+    }
+    .size-image-product{
+        height: 220px;
+    }
+
+    .margin-general{
+        
+        margin-bottom: 120px;
+        
+    }
+   
+}
+
+@media (min-width: 1480px) {
+    .margin-all-search-products{
+        margin-left: 12.2%;
+        margin-right: 13%;
+    }
+    .size-image-product{
+        height: 230px;
+        width: 400px;
+    }
+
+    .margin-general{
+        
+        margin-bottom: 120px;
+        
+    }
+   
+}
+
+

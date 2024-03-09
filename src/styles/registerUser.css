@@ -1,0 +1,159 @@
+.container--register {
+  padding-top: 40px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+}
+
+.header-register-user {
+  margin-top: -20px;
+  text-align: center;
+  color: #fff;
+}
+
+.title--register {
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: -5px;
+}
+
+.text-register-description {
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
+
+.container--input-icons{
+  position: absolute;
+  top: 45%;
+  left: 10px;
+  transform: translateY(-100%);
+  color: #fff;
+  font-size: 1.7em;
+  gap: 40px;
+}
+
+.container-register-input-firts {
+  display: flex;
+  position: relative;
+  /* margin-bottom: 40px; */
+}
+
+.input-register-name {
+  width: 300px;
+  margin-right: 25px;
+}
+
+.input-register-lastaname {
+  width: 300px;
+}
+
+.container-register-input-second {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.form--register-user input[type="text"],
+.form--register-user input[type="password"],
+.form--register-user input[type="email"],
+.form--register-user input[type="number"],
+.form--register-user button[type="submit"] {
+  border: 0;
+  background: none;
+
+  /* margin: 20px auto; */
+  margin-bottom: 40px;
+  padding: 10px 10px;
+  text-align: center;
+  /* font-size: 1.2em; */
+  border: 1.8px solid #ffffffdc;
+
+  outline: none;
+  color: white;
+  border-radius: 2px;
+  font-size: 1em;
+}
+
+.container-register-input-second input[type="text"],
+.container-register-input-second input[type="number"],
+.container-register-input-second input[type="email"],
+.container-register-input-second input[type="password"] {
+  display: block;
+  width: 520px;
+}
+
+.container--register ::placeholder {
+  color: #fff;
+  /* font-size: 1.2em; */
+  letter-spacing: 0.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.container-button-register {
+  /* display: flex; */
+  text-align: center;
+  color: #fff;
+  align-items: center;
+}
+
+.form--register-user button[type="submit"] {
+  /* margin-top: 20px; */
+  display: block;
+  width: 300px;
+  border: 2.8px solid #ffffffdc;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.form--register-user button[type="submit"]:hover {
+  background: linear-gradient(rgba(1, 41, 68, 0.68), rgba(2, 40, 65, 0.68));
+}
+
+.link-login-register {
+  margin-left: 10px;
+}
+
+.description--register-text {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .form--register-user input[type="email"],
+  .form--register-user input[type="text"],
+  .form--register-user input[type="number"],
+  .form--register-user input[type="password"] {
+    margin: 20px auto;
+    margin-bottom: 10px;
+    padding: 7.5px 10px;
+    width: 320px;
+  }
+
+  .container-register-input-firts {
+    display: grid;
+    position: relative;
+  }
+
+  .container-register-input-second{
+    margin-bottom: 20px;
+  }
+
+  /* .container--login {
+      padding-top: 140px;
+    } */
+
+  /* .container--login ::placeholder {
+      color: white;
+      font-size: 0.9em;
+      letter-spacing: 0.2em;
+      font-weight: bold;
+    } */
+}

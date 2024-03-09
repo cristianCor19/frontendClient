@@ -17,4 +17,20 @@
 .container__copy{
     padding: 32px 0px 60px 0px;
 }
-    
+
+.container-icons{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icon-facebook{
+   
+    width: 30px;
+}
+
+.icon-instagram{
+    width: 30px;
+}

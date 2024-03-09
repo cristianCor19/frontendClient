@@ -5,7 +5,7 @@ import CardSearchProduct from "../components/CardSearchProduct"
 function ProductPage (){
     const {prodcuctSearch} = useProduct();
     return(
-        <div className="margin-all-page">
+        <div className="margin-all-search-products">
             {prodcuctSearch.length === 0 ? (
                 <p className="">No hay productos</p>
 

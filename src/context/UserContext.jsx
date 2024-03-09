@@ -28,7 +28,6 @@ export const useUser = () => {
     return context
 }
 
-
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [profile, setProfile] = useState(null)
@@ -131,7 +130,6 @@ export const UserProvider = ({children}) => {
 
     //funcion para desloguearse
     const logout = () => {
-        console.log('salir del login');
         localStorage.removeItem('token')
         setUser(null)
         setIsAuthenticated(false)
@@ -173,10 +171,7 @@ export const UserProvider = ({children}) => {
                 }
 
                 try {
-
-                    console.log('prueba token');
                     const res = await verifyUserTokenRequest(token)
-                    // console.log(res);
                     if(!res.data){
                         return setIsAuthenticated(false)
                     }

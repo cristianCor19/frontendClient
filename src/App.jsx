@@ -44,7 +44,7 @@ function App(){
                   <Route element={<ProtectedRoute />} >
                     <Route path='/cartPage' element={<CartPage/>} />
                     <Route path='/ThanksPurchase' element={<ThanksPage/>} />
-                    <Route path='/prueba' element={<PruebaPage />} />
+                    <Route path='/prueba' element={<HomePage />} />
                   </Route>
                 </Routes>
 

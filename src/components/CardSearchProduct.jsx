@@ -44,6 +44,7 @@ function CardSearchProduct({product}){
                 </div>
             </div>
             
+            <hr />
             
         </div>
     )
