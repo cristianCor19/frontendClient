@@ -1,5 +1,5 @@
 .container--register {
-  padding-top: 40px;
+  padding-top: 70px;
 
   display: flex;
   flex-direction: row;
@@ -7,6 +7,12 @@
   justify-content: center;
   align-items: center;
   padding-left: 0px;
+}
+
+.text-errors-register{
+  padding: 10px;
+  position: absolute;
+  top: 18%;
 }
 
 .header-register-user {

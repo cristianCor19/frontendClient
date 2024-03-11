@@ -43,7 +43,7 @@ export const UserProvider = ({children}) => {
     const signup = async (user) => {
         try {
             const res = await registerUserRequest(user)
-            console.log(res);
+            
             console.log(res.data.status);
             if(res.data.status === true) {
                 console.log('prueba');

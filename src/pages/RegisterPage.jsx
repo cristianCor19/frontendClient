@@ -11,12 +11,22 @@ function RegisterPage(){
     const {signup, isAuthenticated, errors: registersErrors} = useUser();
     const navigate = useNavigate()
     
+    function justLetters(event) {
+        const letra = event.key;
+        const esLetra = /[a-zA-ZñÑá-úÁ-Ú ]/.test(letra);
+        if (!esLetra) {
+          event.preventDefault(); // Evita que se ingresen caracteres no permitidos
+        }
+    }
+
     useEffect(() => {
         if(isAuthenticated) navigate('/prueba')
     }, [isAuthenticated])
     
     const onSubmit = handleSubmit( async(values) =>{
-        console.log(values);
+        console.log(values.name);
+        console.log(values.lastname);
+
         signup(values);
     })
     
@@ -28,7 +38,7 @@ function RegisterPage(){
             <div className='container--register'>
                 {
                     registersErrors.map((error, i) => (
-                        <div className='bg-red-500 p-2 text-white' key={i}>
+                        <div className='bg-red-500  text-white text-errors-register' key={i}>
                             {error}
                         </div>
                     ))
@@ -44,12 +54,12 @@ function RegisterPage(){
                     </div>
                     <div className='container-register-input-firts'>
 
-                        <input type="text" {...register("name", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-name' placeholder='Nombre'/>
+                        <input type="text" onKeyDown={justLetters}  {...register("name", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-name' placeholder='Nombre'/>
                         {
                             errors.name && (<p className='text-red-500'>El nombre es requerido</p>)
                         }
 
-                        <input type="text" {...register("lastname", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-lastname' placeholder='Apellido'/>
+                        <input type="text" onKeyDown={justLetters}  {...register("lastname", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-lastname' placeholder='Apellido'/>
                         {
                             errors.lastname && (<p className='text-red-500'>El apellido es requerido</p>)
                         }
