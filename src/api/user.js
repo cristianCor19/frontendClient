@@ -12,5 +12,6 @@ export const updatePasswordRecoveryRequest = async (user) => axios.put(`/user/up
 export const searchRecoveryRequest = async (email) => axios.post(`/user/sendEmail/email`, email)
 
 export const verifyUserTokenRequest = async(token) =>axios.get(`/user/verify/${token}`)
+// export const verifyUserTokenRequest = async(token) =>axios.get(`/user/verify?token=${token}`)
 
 export const verifyUserRoleTokenRequest = async(token) =>axios.get(`/user/verifyUser/${token}`)
