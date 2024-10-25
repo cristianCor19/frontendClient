@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import {useUser} from '../context/UserContext'
+import { useSession } from '../context/SessionContext'
 
 import { getProductsRequest, getProductRequest,getSearchProductRequest} from "../api/product";
 import { 
@@ -30,7 +30,7 @@ export const useProduct = () => {
 // ... (importaciones y código existente)
 
 export const ProductProvider = ({ children }) => {
-    const {isAuthenticated, profile} = useUser()
+    const {isAuthenticated, profile} = useSession()
     
     const [cartProducts, setCartProducts] = useState([])
     const [products, setProducts] = useState([]);

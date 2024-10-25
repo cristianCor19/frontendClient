@@ -2,7 +2,7 @@ import {  useState, useEffect,Fragment, useRef } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
-import { useUser } from "../context/UserContext"
+import { useSession } from '../context/SessionContext'
 import { useProduct } from "../context/ProductContext";
 
 
@@ -20,12 +20,21 @@ function classNames(...classes) {
 }
 
 function Navbar() {
-  const {logout, isAuthenticated, profile} = useUser()
+  const {isAuthenticated, profile, logout} = useSession()
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(false);
   const [propSearch, setPropSearch] = useState('');
   const { countProducts, total,onDeleteProduct, cartProducts, getProductsCart, getSearchProduct} = useProduct();
   const cartProductsRef = useRef(null);
+
+  const getDisplayName = () => {
+    if (!profile) {
+      return 'Cargando...';
+    }
+    return profile.name && profile.lastname 
+      ? `${profile.name} ${profile.lastname}` 
+      : 'Usuario';
+  };
 
   const getDataCart = () => {
     console.log('entro navbar');
@@ -237,18 +246,21 @@ function Navbar() {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            
+
                             <Menu.Item>
-                              {({ active }) => (
-                                <p
-                                  className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                >
+                                {({ active }) => (
+                                  <p
+                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                  >
+                                    
+                                    {getDisplayName()}
+                                    
                                   
-                                  {`${profile.name} ${profile.lastname}`}
-                                  
-                                 
-                                </p>
-                              )}
-                            </Menu.Item>
+                                  </p>
+                                )}
+                              </Menu.Item> 
+                          
                             <Menu.Item>
                               {({ active }) => (
                                 <a

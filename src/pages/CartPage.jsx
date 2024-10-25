@@ -1,4 +1,3 @@
-
 import { useProduct } from "../context/ProductContext";
 import { useEffect } from "react";
 

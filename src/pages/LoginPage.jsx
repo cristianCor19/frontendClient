@@ -1,6 +1,6 @@
 import '../styles/login.css'
 import { useForm } from "react-hook-form";
-import { useUser } from "../context/UserContext";
+import { useSession } from "../context/SessionContext";
 import { Link, useNavigate  } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ function LoginPage() {
     formState: { errors },
     // reset,
   } = useForm();
-  const { signin, errors: signinErrors, isAuthenticated } = useUser();
+  const { signin, errors: signinErrors, isAuthenticated } = useSession();
   const navigate = useNavigate()
   const [password, setPassword] = useState("");
 

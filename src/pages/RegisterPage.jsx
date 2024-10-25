@@ -2,13 +2,13 @@ import '../styles/registerUser.css'
 
 import {useForm} from 'react-hook-form'
 import { useUser } from '../context/UserContext';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 function RegisterPage(){
 
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const {signup, isAuthenticated, errors: registersErrors} = useUser();
+    const {signup,  errors: registersErrors} = useUser();
     const navigate = useNavigate()
     
     function justLetters(event) {
@@ -19,15 +19,14 @@ function RegisterPage(){
         }
     }
 
-    useEffect(() => {
-        if(isAuthenticated) navigate('/prueba')
-    }, [isAuthenticated])
     
     const onSubmit = handleSubmit( async(values) =>{
         console.log(values.name);
         console.log(values.lastname);
 
         signup(values);
+
+        navigate('/login')
     })
     
 

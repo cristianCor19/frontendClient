@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
-import { useUser } from '../context/UserContext';
+import { useSession } from '../context/SessionContext';
 import MessageRecovery from '../components/MessageRecovery';
 
 function RecoveryPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { searchRecovery, errors: signinErrors, user, email } = useUser();
+  const { searchRecovery, errors: signinErrors, user, email } = useSession();
 
 
   const onSubmit = handleSubmit(data => {
