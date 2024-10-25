@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // creacion de conexion con la api
 const instance = axios.create({
-    baseURL: "https://backinfotect.onrender.com",
+    baseURL: import.meta.env.VITE_API,
     withCredentials: true
 })
 
