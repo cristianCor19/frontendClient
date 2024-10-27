@@ -53,11 +53,7 @@ export const SessionProvider = ({children}) => {
             const resProfile = await getUserProfileRequest(res.data.token, res.data.data._id)  
             
             setTest1(resProfile.data)
-            // Obtener y actualizar el perfil inmediatamente
-            
-           
-            
-            
+  
         } catch (error) {
             setErrors(Array.isArray(error.response.data) 
               ? error.response.data 
