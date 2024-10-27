@@ -2,13 +2,13 @@ import '../styles/registerUser.css'
 
 import {useForm} from 'react-hook-form'
 import { useUser } from '../context/UserContext';
-// import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function RegisterPage(){
 
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const {signup,  errors: registersErrors} = useUser();
+    const {signup,  errors: registersErrors, registrationSuccess, setRegistrationSuccess} = useUser();
     const navigate = useNavigate()
     
     function justLetters(event) {
@@ -21,15 +21,17 @@ function RegisterPage(){
 
     
     const onSubmit = handleSubmit( async(values) =>{
-        console.log(values.name);
-        console.log(values.lastname);
-
+    
         signup(values);
 
-        navigate('/login')
     })
     
-
+    useEffect(() => {
+        if(registrationSuccess){
+            navigate('/login')
+            setRegistrationSuccess(false)
+        }
+    },[registrationSuccess, navigate, setRegistrationSuccess]);
 
     return(
         <div className='principal '>
