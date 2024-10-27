@@ -37,7 +37,6 @@ function Navbar() {
   };
 
   const getDataCart = () => {
-    console.log('entro navbar');
     getProductsCart()
     
   };
