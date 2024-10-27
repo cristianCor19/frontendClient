@@ -20,7 +20,7 @@ export const useUser = () => {
 }
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState(null)
+    const [registrationSuccess, setRegistrationSuccess] = useState(false)
     const [errors, setErrors] = useState([])
     
     
@@ -30,12 +30,11 @@ export const UserProvider = ({children}) => {
     const signup = async (user) => {
         try {
             const res = await registerUserRequest(user)
-            
-            console.log(res.data.status);
+            console.log('cristian 1');
+            console.log(res);
+            console.log('cristian 2');
             if(res.data.status === true) {
-                console.log('prueba');
-                console.log('entro');
-                setUser(res.data)
+                setRegistrationSuccess(true)
 
             }
         } catch (error) {
@@ -58,17 +57,13 @@ export const UserProvider = ({children}) => {
         }
     }, [errors])
 
-    // funcion para realizar las verificaciones de seguridad respecto al manejo de tokens
-
     return (
         <UserContext.Provider
         value={{
-            user,
+            registrationSuccess,
             signup,
             errors,
-            
-
-            
+            setRegistrationSuccess  
         }}
         >
             {children}
