@@ -29,7 +29,7 @@ function LoginPage() {
       navigate("/")
     }
 
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   return (
     <div className='principal'>
