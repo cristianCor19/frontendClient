@@ -55,9 +55,6 @@ export const ProductProvider = ({ children }) => {
 
     const getProduct = async (id) => {
         try {
-            // const resCart = await getProductsCartRequest()
-            // const dataCart = resCart.data.data
-            // setCountProducts(dataCart.length)
             const res = await getProductRequest(id);
             console.log(res);
             setProduct(res.data.data);
@@ -138,7 +135,6 @@ export const ProductProvider = ({ children }) => {
 
     const getProductsCart = async() => {
         try {
-            console.log('entro test');
             const token = localStorage.getItem('token');
 
             const res = await getProductsCartRequest(token)
