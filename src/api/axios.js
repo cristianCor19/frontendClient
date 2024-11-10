@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // creacion de conexion con la api
 const instance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://back-infotect.vercel.app",
     withCredentials: true
 })
 
