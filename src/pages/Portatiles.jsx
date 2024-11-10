@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useProduct } from "../context/ProductContext";
 
 function Portatiles() {
-  const { getProducts, products } = useProduct();
+  const { getProducts, products, getFavorites } = useProduct();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ function Portatiles() {
     };
     fetchData();
   }, []);
+
 
   if (loading) return <div className="grid sm:grid-cols-2 md:grid-cols-3"><p className="">Cargando productos...</p></div>;
   

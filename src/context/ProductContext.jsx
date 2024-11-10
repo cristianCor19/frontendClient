@@ -2,14 +2,13 @@ import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useSession } from '../context/SessionContext'
 
-import { getProductsRequest, getProductRequest,getSearchProductRequest} from "../api/product";
+import { getProductsRequest, getProductRequest,getSearchProductRequest, sendFavoritesRequest, removeFavoriteRequest, getProductsFavoriteRequest} from "../api/product";
 import { 
     createPayRequest,
     sendCartToServerRequest, 
     getProductsCartRequest,
     deleteProductCartRequest,
     deleteAllProductsCartRequest,
-    
     
  } from "../api/payment";
 
@@ -19,6 +18,7 @@ export const ProductContext = createContext()
 //creacion de la funcion para poder entrar al contexto o las funciones de autenticacion
 export const useProduct = () => {
     const context = useContext(ProductContext)
+    
 
     if (!context) {
         throw new Error('useProduct debe utilizarse dentro de un Productprovider')
@@ -40,6 +40,7 @@ export const ProductProvider = ({ children }) => {
     const [countProducts, setCountProducts] = useState(0);
     const [total, setTotal] = useState(0);
     const navigate = useNavigate()
+    const [favorite, setFavorites] = useState([]);
 
     
 
@@ -56,7 +57,7 @@ export const ProductProvider = ({ children }) => {
     const getProduct = async (id) => {
         try {
             const res = await getProductRequest(id);
-            console.log(res);
+            
             setProduct(res.data.data);
         } catch (error) {
             console.log(error);
@@ -75,10 +76,8 @@ export const ProductProvider = ({ children }) => {
     }
 
     const addToCart = async(productCart) => {
-        console.log(isAuthenticated);
 
         if(isAuthenticated){
-            console.log('test add to cart');
             if (cart.find(item => item._id === productCart._id)) {
                 const productsCart = cart.map(item =>
                     item._id === productCart._id
@@ -110,6 +109,39 @@ export const ProductProvider = ({ children }) => {
         
     };
 
+    const addToFavorite = async (favoriteProdcut) => {
+        if(isAuthenticated){
+            console.log(favoriteProdcut._id);
+            const res = await sendFavoritesRequest(favoriteProdcut,  profile._id)
+        }else{
+            navigate('/login')
+        }
+    }
+
+    const removeFromFavorite = async (favoriteProdcut) => {
+        if(isAuthenticated){
+            console.log('delete from favorites')
+            console.log(favoriteProdcut._id);
+            const res = await removeFavoriteRequest(favoriteProdcut._id)
+            console.log(res)
+        }else{
+            navigate('/login')
+        }
+    }
+
+    const getFavorites = async function(){
+        try {
+            const token = localStorage.getItem('token');
+            const res = await getProductsFavoriteRequest(token)
+            // console.log(res.data.data);
+            
+            setFavorites(res.data.data)
+            
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     const consolidateCartProducts = (cartData) => {
         const consolidatedProducts = {};
     
@@ -137,20 +169,21 @@ export const ProductProvider = ({ children }) => {
         try {
             const token = localStorage.getItem('token');
 
-            const res = await getProductsCartRequest(token)
-           
-            const dataCart = res.data.data.carts
-            const dataTotal = res.data.data.total
-            console.log(res);
-            setTotal(dataTotal)
+            if(isAuthenticated){            
+                const res = await getProductsCartRequest(token)
+            
+                const dataCart = res.data.data.carts
+                const dataTotal = res.data.data.total
+                setTotal(dataTotal)
 
-            setCountProducts(dataCart.length)
-            
-            const consolidatedCart = consolidateCartProducts(dataCart);
-            
-
-            
-            setCartProducts(consolidatedCart)
+                setCountProducts(dataCart.length)
+                
+                const consolidatedCart = consolidateCartProducts(dataCart);
+                
+                setCartProducts(consolidatedCart)
+            }else{
+                navigate('/login')
+            }
 
             
         } catch (error) {
@@ -197,8 +230,6 @@ export const ProductProvider = ({ children }) => {
 
     useEffect( () => {
         async function loadDataCart(){
-            
-
                 const token = localStorage.getItem('token');
 
     
@@ -208,7 +239,24 @@ export const ProductProvider = ({ children }) => {
                 setCountProducts(dataCart.length)
         }
         loadDataCart()
-    },[])
+    },[isAuthenticated])
+
+    useEffect( () => {
+        async function loadFavorite(){
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                
+                getFavorites()
+            }else{
+
+                setFavorites([])
+            }
+            
+        }
+        loadFavorite()
+
+    },[isAuthenticated])
 
 
 
@@ -222,6 +270,7 @@ export const ProductProvider = ({ children }) => {
                 total,
                 cartProducts,
                 prodcuctSearch,
+                favorite,
                 getProducts,
                 getProduct,
                 getSearchProduct,
@@ -230,7 +279,11 @@ export const ProductProvider = ({ children }) => {
                 onDeleteProduct,
                 onCleanCart,
                 createPay,
-                
+                addToFavorite,
+                removeFromFavorite,
+                getFavorites,
+                setFavorites,
+            
     
             }}
         >

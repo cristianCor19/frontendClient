@@ -48,7 +48,13 @@ export const UserProvider = ({children}) => {
     //funcion paar quitar los mensajes de error, despues de cierto tiempo
 
     useEffect(() => {
+        
+        console.log('1');
+        console.log(errors.length);
+        console.log('1');
+        
         if(errors.length > 0){
+            
             const timer = setTimeout(() => {
                 setErrors([])
             }, 5000)

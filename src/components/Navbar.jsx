@@ -1,7 +1,7 @@
 import {  useState, useEffect,Fragment, useRef } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useSession } from '../context/SessionContext'
 import { useProduct } from "../context/ProductContext";
 
@@ -24,7 +24,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(false);
   const [propSearch, setPropSearch] = useState('');
-  const { countProducts, total,onDeleteProduct, cartProducts, getProductsCart, getSearchProduct} = useProduct();
+  const { countProducts, total,onDeleteProduct, cartProducts, getProductsCart, getSearchProduct, getFavorites} = useProduct();
   const cartProductsRef = useRef(null);
 
   const getDisplayName = () => {
@@ -42,10 +42,9 @@ function Navbar() {
   };
 
   const searchProduct = () => {
-    console.log(propSearch);
     if(propSearch){
-
       getSearchProduct(propSearch)
+      setPropSearch('')
     }
   }
 
@@ -57,6 +56,7 @@ function Navbar() {
       //verifica si el clic ocurio afuera del elemento que esta referenciado, aclaracion en react, esto se hace con useRef(), 
       if (cartProductsRef.current && !cartProductsRef.current.contains(event.target)) {
         //si el clic ocrrio afuera cambia el estado del elemento active, cerrando la ventana emergente
+        
         setActive(false);
       }
     };
@@ -121,14 +121,15 @@ function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <button className='bg-red-400' onClick={getFavorites}>Favoritos</button>
               <div className='container-icon'>
                         <div
                           className='container-cart-icon'
                           onClick={(event) => {
                             event.stopPropagation();
-                            
-                            setActive(!active)
+                            isAuthenticated ? setActive(!active) : setActive(active)
                             getDataCart()
+                            
                           }}
                         >
                           <svg
@@ -163,7 +164,7 @@ function Navbar() {
 
                         <div
                           className={`container-cart-products ${
-                            active ? '' : 'hidden-cart'
+                            active ? '' : 'hidden'
                           }`} ref={cartProductsRef}
                         >
                           {cartProducts.length ? (
@@ -208,9 +209,11 @@ function Navbar() {
                               </div>
 
                              
-                              <Link to={'/cartPage'} >
+                              <Link to={'/cartPage'} onClick={() => {
+                                setActive(false)
+                              }}>
                               
-                                <button className='btn-clear-all' >
+                                <button className='btn-clear-all'>
                                   Ver carrito
                                 </button>
                               </Link>
@@ -262,12 +265,12 @@ function Navbar() {
                           
                             <Menu.Item>
                               {({ active }) => (
-                                <a
-                                  href="#"
+                                <Link
+                                  to={'/profile'}
                                   className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                 >
                                   Mi perfil
-                                </a>
+                                </Link>
                               )}
                             </Menu.Item>
                             <Menu.Item>

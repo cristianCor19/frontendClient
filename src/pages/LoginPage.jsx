@@ -23,6 +23,7 @@ function LoginPage() {
       setPassword("");
     }
   });
+  
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -44,7 +45,7 @@ function LoginPage() {
                     
                     <div className="container--input">
                         <input type="email" className="input-field placeholder" placeholder="Digite su usuario"
-                        {...register("email", { required: true })}/>
+                        {...register("email", { required: true})}/>
                         <i className='bx bxs-user-account'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -53,8 +54,7 @@ function LoginPage() {
                         {errors.email && <p className="text-red-500">Email is required</p>}
                     </div>
                     <div className="container--input">
-                        <input type="password" name="user" id="user" required placeholder="Digite su contraseña"
-                        // {...register("password", { required: true })}/>
+                        <input type="password" name="user" id="user"  placeholder="Digite su contraseña"
                         {...register("password", { required: true })}
                         value={password} // Agrega el valor del estado local
                         onChange={(e) => setPassword(e.target.value)} // Actualiza el estado local

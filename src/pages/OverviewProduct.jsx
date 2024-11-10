@@ -1,15 +1,16 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useProduct } from "../context/ProductContext";
 import '../styles/overview.css'
 import start from "../assets/img/star.svg";
-import love from "../assets/img/love.svg";
 import FooterComponent from "../components/FooterComponent"
 
 
 function OverviewProduct() {
-  const { getProduct, product, addToCart } = useProduct();
+  const { getProduct, product, addToCart, removeFromFavorite, addToFavorite, favorite, getFavorites } = useProduct();
+  // const [heart, setHeart] = useState(false);
   const navigate = useNavigate()
+  const [heart, setHeart] = useState(false);
   // const { getProduct } = useProduct();
   const params = useParams();
 
@@ -19,10 +20,38 @@ function OverviewProduct() {
     navigate("/cartPage")
     
   };
+  // type={favorite.filter(fav => fav.product_id == params.id) ? 'solid' : 'regular'}
+
+  const toggleHeart = () => {
+    // e.preventDefault(); 
+    setHeart(prevHeart => !prevHeart);
+    console.log(heart); 
+  
+};
+
+  
+  useEffect(() => {
+    favorite.forEach(element => {
+        if(element.product_id == params.id){
+          setHeart(true)
+        }
+      
+    });
+    
+    
+  }, [favorite, params.id]);
 
   useEffect(() => {
     getProduct(params.id);
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getFavorites();
+    };
+    fetchData();
+  }, []);
+
 
   return (
     <div>
@@ -48,8 +77,18 @@ function OverviewProduct() {
               <h2 className="product-title text-3xl" title="Portatil acer nitro">
               {product.name}
               </h2>
-              <button className="button-love-overview">
-                  <img className="opacity-100 " src={love} alt="" />
+              <button className="button-love-overview" onClick={() => {
+                toggleHeart()
+                heart ? removeFromFavorite(product) : addToFavorite(product)
+              }}>
+                {
+                  
+                <box-icon
+                  type={heart ? 'solid' : 'regular'}
+                  name='heart'
+                ></box-icon>
+                }
+                  
               </button>
               
           </div>

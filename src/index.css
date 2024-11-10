@@ -43,6 +43,8 @@ body{
 	
 }
 
+
+
 .size-image{
 	
   /* max-width: 100%; */
@@ -140,16 +142,16 @@ body{
 
 
 .container-cart-products {
-	position: absolute;
-	top: 50px;
-	right: 0;
-
-	background-color: #fff;
-	width: 400px;
-	z-index: 1;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
-	
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    width: 400px;
+    height: 300px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow-y: auto; /* o overflow-y: scroll */
 }
 
 .cart-product {
@@ -157,7 +159,6 @@ body{
 	align-items: center;
 	justify-content: space-between;
 	padding: 30px;
-
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -267,16 +268,18 @@ body{
 
 /*estilos boton de ver carrito navbar*/
 
-.btn-clear-all{
-	position: relative;
-	background-color: rgb(42, 107, 42);
-	padding: 6px;
-	border-radius: 5px;
-	margin-left: 26%;
-	font-weight: bold;
-	color: white;
-	width: 200px;
-	margin-bottom: 10px;
+.btn-clear-all {
+    position: sticky; /* o position: fixed */
+    bottom: 0;
+    background-color: #fff;
+    padding: 13px;
+    font-weight: bold;
+	box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    color:  rgb(31, 41, 55);
+    width: 380px;
+    margin: 0 auto; /* para centrarlo horizontalmente */
+    display: block;
+    z-index: 2; /* para asegurarnos que está por encima de los productos */
 }
 
 
@@ -365,28 +368,23 @@ body{
 @media (min-width: 1480px){
 	
 	.container-test-1 .margin-all-page{
-		margin-left: 11%;
-		margin-right: 12%;
-		
+		max-width: 1400px;
+		padding-left: 4.5rem;
 	}
 
-	.margin-all-page{
-		border: 0.5px solid rgb(198, 198, 198);
-	}
 	
 	.navbar-margin{
-		margin-left: 8%;
-		margin-right: 10%;
+		max-width: 1400px;
 	}
 }
 
-@media (min-width: 1550px){
+/* @media (min-width: 1550px){
 	.container-test-1 .margin-all-page{
 		margin-left: 11%;
 		margin-right: 12%;
 	}
 	
-}
+} */
 
 @media (min-width: 1900px){
 	.container-test-1 .margin-all-page{
@@ -394,9 +392,9 @@ body{
 	}
 	
 
-	.navbar-margin{
+	/* .navbar-margin{
 		margin-left: 10%;
 		margin-right: 12%;
-	}
+	} */
 }
 

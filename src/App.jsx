@@ -20,6 +20,7 @@ import MonitoresPage from "./pages/MonitoresPage"
 import PartesPcPage from "./pages/PartesPcPage"
 import PerifericosPage from "./pages/PerifericosPage"
 import ProductPage from "./pages/ProductPage"
+import ProfileUserPage from "./pages/ProfileUserPage"
 
 
 //Cache System
@@ -64,6 +65,7 @@ function App(){
                         <Route path='/cartPage' element={<CartPage/>} />
                         <Route path='/ThanksPurchase' element={<ThanksPage/>} />
                         <Route path='/prueba' element={<HomePage />} />
+                        <Route path='/profile' element={<ProfileUserPage />} />
                       </Route>
                     </Routes>
 

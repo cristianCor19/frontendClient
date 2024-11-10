@@ -4,7 +4,7 @@ import MessageRecovery from '../components/MessageRecovery';
 
 function RecoveryPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { searchRecovery, errors: signinErrors, user, email } = useSession();
+  const { searchRecovery, errors: signinErrors, userInfo, email } = useSession();
 
 
   const onSubmit = handleSubmit(data => {
@@ -12,11 +12,11 @@ function RecoveryPage() {
   });
 
   // Renderiza el componente MessageRecovery si la recuperación fue exitosa
-  if (user && email) {
+  if (userInfo && email) {
     return (
       <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
         <div className='bg-blue-300 max-w-md w-full p-10 rounded-md'>
-          <MessageRecovery user={user} email={email} />
+          <MessageRecovery user={userInfo} email={email} />
         </div>
       </div>
     );
