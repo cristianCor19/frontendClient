@@ -1,5 +1,4 @@
 import {useEffect} from "react";
-import {LazyLoadImage} from "react-lazy-load-image-component";
 import slider1 from "../assets/img/slider-1.webp";
 import slider2 from "../assets/img/slider-2.webp";
 import slider3 from "../assets/img/slider-3.webp";
@@ -42,19 +41,19 @@ function SliderComponent () {
         <div className="relative main-slider">
            <ul id="slider" className="">
                 <li className="h-[50vh] relative">
-                    <img className="h-full object-cover w-full slider-image" src={slider2} alt="" />
+                    <img className="h-full object-cover w-full slider-image" src={slider2} loading="lazy" alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold  my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
                 <li className="h-[50vh] relative hidden">
-                    <LazyLoadImage className="h-full object-cover w-full slider-image" src={slider3} alt="" />
+                    <img className="h-full object-cover w-full slider-image" src={slider3} alt="" loading="lazy"/>
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold  my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
                 <li className="h-[50vh] relative hidden">
-                    <LazyLoadImage className="h-full object-cover w-full slider-image" src={slider1} alt="" />
+                    <img className="h-full object-cover w-full slider-image" src={slider1} alt="" loading="lazy"/>
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
