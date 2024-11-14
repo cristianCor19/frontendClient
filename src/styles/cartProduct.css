@@ -4,7 +4,7 @@
         grid-template-columns: 70% 30%;
         gap: 10px;
     }
-    
+
     .container-page-cart{
         height: 234px;
         display: absolute;
@@ -12,7 +12,7 @@
         border: 0.5px solid gray;
         /* width: 40%; */
     }
-    
+
     .button-page-cart{
         position: relative;
         background-color: blue;
@@ -23,10 +23,10 @@
         font-size: 1rem;
         padding: 7px;
         border-radius: 10px;
-        left: 5%; 
+        left: 5%;
         margin-top: 50px;
     }
-    
+
     .button-deleteProducts-cart{
         position: relative;
         margin-top: 15px;
@@ -38,69 +38,69 @@
         font-size: 1rem;
         padding: 6px;
         border-radius: 10px;
-        left: 15%; 
+        left: 15%;
     }
-    
+
     .description-total-cart{
         display: absolute;
         font-weight: 700;
         margin-left: auto;
         margin-right: 10px;
     }
-    
+
     .button-delete-one{
         position: relative;
         color: red;
         left: 25%;
         cursor: pointer;
     }
-    
-    
+
+
 }
 
 @media (min-width: 650px){
     .button-page-cart{
-        left: 12%; 
-      
+        left: 12%;
+
     }
-    
+
     .button-deleteProducts-cart{
-        left: 20%; 
+        left: 20%;
     }
 }
 
 @media (min-width: 750px){
     .button-page-cart{
-        left: 18%; 
-      
+        left: 18%;
+
     }
-    
+
     .button-deleteProducts-cart{
-        left: 24%; 
+        /* left: 24%;  */
     }
 }
 
 @media (min-width: 850px){
     .button-page-cart{
-        left: 18%; 
+        left: 18%;
         width: 180px;
     }
-    
+
     .button-deleteProducts-cart{
-        left: 28%; 
-        
+        /* left: 28%;  */
+
     }
 }
 
 @media (min-width: 1024px){
     .button-page-cart{
-        left: 20%; 
-      
+        left: 20%;
+
     }
-    
+
     .button-deleteProducts-cart{
-        left: 25%; 
-        width: 150px;
+
+        width: 200px;
     }
 
     .margin-general-Cart{
@@ -111,23 +111,23 @@
 
 @media (min-width: 1536px){
     .button-page-cart{
-        left: 21%; 
-      
+        left: 21%;
+
     }
-    
+
     .button-deleteProducts-cart{
-        left: 27%; 
+        /* left: 27%;  */
     }
 }
 
 @media (min-width: 1736px){
     .button-page-cart{
-        left: 24%; 
-      
+        left: 24%;
+
     }
-    
+
     .button-deleteProducts-cart{
-        left: 29%; 
+        /* left: 29%;  */
     }
 }
 

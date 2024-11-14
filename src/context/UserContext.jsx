@@ -30,28 +30,25 @@ export const UserProvider = ({children}) => {
     const signup = async (user) => {
         try {
             const res = await registerUserRequest(user)
-            console.log('cristian 1');
             console.log(res);
-            console.log('cristian 2');
             if(res.data.status === true) {
                 setRegistrationSuccess(true)
 
             }
         } catch (error) {
-            if(Array.isArray(error.response.data)){
-                setErrors(error.response.data)
-            }
-            setErrors([error.response.data.message])
+
+            console.log(error);
+            
+            setErrors(Array.isArray(error.response.data)
+            ? error.response.data
+            : [error.response.data.message])
+            
         }
     }
 
     //funcion paar quitar los mensajes de error, despues de cierto tiempo
 
     useEffect(() => {
-        
-        console.log('1');
-        console.log(errors.length);
-        console.log('1');
         
         if(errors.length > 0){
             

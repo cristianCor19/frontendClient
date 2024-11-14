@@ -121,7 +121,7 @@ function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 sm:pt-2">
-              <button className='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium mt-3.5' onClick={getFavorites}>Favoritos</button>
+              <Link to={'/favorite_products'} className='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium mt-3.5' onClick={getFavorites}>Favoritos</Link>
               <div className='container-icon'>
                         <div
                           className='container-cart-icon'

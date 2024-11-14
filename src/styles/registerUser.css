@@ -1,5 +1,5 @@
 .container--register {
-  padding-top: 70px;
+  padding-top: 110px;
 
   display: flex;
   flex-direction: row;
@@ -10,9 +10,12 @@
 }
 
 .text-errors-register{
-  padding: 10px;
+  padding: 5px;
+  max-width: 450px;
   position: absolute;
-  top: 18%;
+  top: 140px;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .header-register-user {
@@ -141,6 +144,13 @@
     margin-bottom: 10px;
     padding: 7.5px 10px;
     width: 320px;
+  }
+
+  .text-errors-register{
+    padding: 5px;
+    max-width: 400px;
+    position: absolute;
+    top: 140px;
   }
 
   .container-register-input-firts {

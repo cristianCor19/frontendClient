@@ -81,6 +81,7 @@
    
 }
 
+
 @media (min-width: 1024px) {
     .margin-all-search-products{
         margin-left: 6%;
@@ -100,8 +101,9 @@
 
 @media (min-width: 1480px) {
     .margin-all-search-products{
-        margin-left: 12.2%;
-        margin-right: 13%;
+        margin: auto;
+        max-width: 1300px;
+        
     }
     .size-image-product{
         height: 230px;
