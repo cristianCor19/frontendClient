@@ -1,5 +1,4 @@
 import { useProduct } from "../context/ProductContext";
-
 import CardSearchProduct from "../components/CardSearchProduct"
 
 function ProductPage (){

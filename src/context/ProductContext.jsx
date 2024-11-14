@@ -120,9 +120,12 @@ export const ProductProvider = ({ children }) => {
 
     const removeFromFavorite = async (favoriteProdcut) => {
         if(isAuthenticated){
+            const idUser = profile._id;
             console.log('delete from favorites')
-            console.log(favoriteProdcut._id);
-            const res = await removeFavoriteRequest(favoriteProdcut._id)
+            console.log(favoriteProdcut);
+            console.log('delete from favorites 2')
+            
+            const res = await removeFavoriteRequest(favoriteProdcut, idUser)
             console.log(res)
         }else{
             navigate('/login')

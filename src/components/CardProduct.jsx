@@ -1,11 +1,12 @@
 import {useEffect,  useState } from 'react'
 import { useProduct } from "../context/ProductContext";
-import {LazyLoadImage} from "react-lazy-load-image-component";
+import { useSession } from '../context/SessionContext';
 
 import { Link } from "react-router-dom";
 
 function CardProduct ({product}){
-    const { addToCart, addToFavorite,removeFromFavorite, favorite, getFavorites } = useProduct();
+    const { addToCart, addToFavorite,removeFromFavorite, getFavorites, favorite } = useProduct();
+    const {isAuthenticated} = useSession();
     const [iconHeart, setIconHeart] = useState(false);
 
 
@@ -15,10 +16,13 @@ function CardProduct ({product}){
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-          await getFavorites();
-        };
-        fetchData();
+        if (isAuthenticated) {
+            
+            const fetchData = async () => {
+              await getFavorites();
+            };
+            fetchData();
+        }
       }, []);
 
     useEffect(() => {
@@ -90,7 +94,7 @@ function CardProduct ({product}){
                             <button className="button-icon" onClick={(e) => {
                                 e.preventDefault()
                                 toggleHeart()
-                                iconHeart ? removeFromFavorite(product) : addToFavorite(product)
+                                iconHeart ? removeFromFavorite(product._id) : addToFavorite(product)
                             
                             }}>
                                 <box-icon 

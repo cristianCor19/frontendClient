@@ -15,11 +15,11 @@ function RegisterPage(){
         const letra = event.key;
         const esLetra = /[a-zA-ZñÑá-úÁ-Ú ]/.test(letra);
         if (!esLetra) {
-          event.preventDefault(); // Evita que se ingresen caracteres no permitidos
+          event.preventDefault(); // 
         }
     }
-
     
+
     const onSubmit = handleSubmit( async(values) =>{
     
         signup(values);
@@ -39,7 +39,8 @@ function RegisterPage(){
             <div className='container--register'>
                 {
                     registersErrors.map((error, i) => (
-                        <div className='bg-red-500  text-white text-errors-register' key={i}>
+                      
+                        <div className='bg-red-500 text-white text-errors-register' key={i}>
                             {error}
                         </div>
                     ))

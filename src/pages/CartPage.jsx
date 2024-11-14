@@ -42,7 +42,8 @@ function CartPage(){
                                             {product.price}
                                         </td>
                                         <td className="w-10 p-3 text-sm text-gray-700 whitespace-nowrap">
-                                            <span className="p-3 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{product.quantity}</span>
+                                            <input type="number" className="p-3 text-xs font-medium uppercase tracking-wider  rounded-lg bg-opacity-50" name="" id="" value={product.quantity}/>
+                                            {/* <span className="p-3 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{product.quantity}</span> */}
                                         </td>
                                         <td className="w-10 p-3 text-sm text-gray-700 whitespace-nowrap"><img src={product.image} alt="" /></td>
                                     

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useProduct } from "../context/ProductContext";
 
 function Portatiles() {
-  const { getProducts, products, getFavorites } = useProduct();
+  const { getProducts, products } = useProduct();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
