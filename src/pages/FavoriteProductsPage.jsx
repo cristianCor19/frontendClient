@@ -1,6 +1,6 @@
 import { useProduct } from "../context/ProductContext";
-import '../styles/CardFavoriteProduct.css'
 import CardFavoriteProduct from "../components/CardFavoriteProduct"
+import '../styles/cardFavoriteProduct.css'
 
 function FavoriteProductsPage(){
 

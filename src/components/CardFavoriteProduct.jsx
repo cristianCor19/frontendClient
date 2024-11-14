@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useProduct } from '../context/ProductContext';
 
+
 function CardSearchProduct({product}){
     const { addToCart, removeFromFavorite, } = useProduct();
 
