@@ -4,6 +4,7 @@ import '../styles/HomePage.css'
 
 function HomePage () {
     return (
+        
         <div>
             <SliderComponent></SliderComponent>
             <div className="container__favorites">
