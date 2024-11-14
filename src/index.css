@@ -378,14 +378,6 @@ body{
 	}
 }
 
-/* @media (min-width: 1550px){
-	.container-test-1 .margin-all-page{
-		margin-left: 11%;
-		margin-right: 12%;
-	}
-	
-} */
-
 @media (min-width: 1900px){
 	.container-test-1 .margin-all-page{
 		margin-left: 11%;
