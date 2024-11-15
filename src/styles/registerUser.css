@@ -1,5 +1,5 @@
 .container--register {
-  padding-top: 110px;
+  padding-top: 90px;
 
   display: flex;
   flex-direction: row;
@@ -8,6 +8,7 @@
   align-items: center;
   padding-left: 0px;
 }
+
 
 .text-errors-register{
   padding: 5px;
