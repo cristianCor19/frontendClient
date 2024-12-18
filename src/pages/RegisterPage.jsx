@@ -7,7 +7,15 @@ import { useEffect } from 'react';
 
 function RegisterPage(){
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm({
+        defaultValues: {
+            name: '',
+            lastname: '',
+            phone: '',
+            email: '',
+            password: ''
+        }
+    });
     const {signup,  errors: registersErrors, registrationSuccess, setRegistrationSuccess} = useUser();
     const navigate = useNavigate()
     
@@ -34,7 +42,7 @@ function RegisterPage(){
     },[registrationSuccess, navigate, setRegistrationSuccess]);
 
     return(
-        <div className='principal '>
+        <div className='principal register-main'>
            
             <div className='container--register'>
                 {
@@ -56,32 +64,70 @@ function RegisterPage(){
                     </div>
                     <div className='container-register-input-firts'>
 
-                        <input type="text" onKeyDown={justLetters}  {...register("name", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-name' placeholder='Nombre'/>
-                        {
-                            errors.name && (<p className='text-red-500'>El nombre es requerido</p>)
-                        }
+                        <input type="text" onKeyDown={justLetters} 
+                          placeholder='Nombre' className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-name' 
+                          {...register("name",{
+                            required: "El nombre es requerido"
 
-                        <input type="text" onKeyDown={justLetters}  {...register("lastname", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-lastname' placeholder='Apellido'/>
-                        {
-                            errors.lastname && (<p className='text-red-500'>El apellido es requerido</p>)
-                        }
+                          })} 
+                        />
+                        {errors.name && (
+                            <p className='errors-input-register-name'>{errors.name.message}</p>
+                        )}
+
+                        <input type="text" onKeyDown={justLetters}
+                          placeholder='Apellido' className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-lastname' 
+                          {...register("lastname", {
+                            required: 'El apellido es requerido'
+                          })} 
+                        />
+                        {errors.lastname && (
+                            <p className='errors-input-register-lastname'>{errors.lastname.message}</p>
+                        )}
                     </div>
                     <div className='container-register-input-second'>
 
-                        <input type="number" {...register("phone", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' placeholder='Telefono'/>
-                        {
-                            errors.phone && (<p className='text-red-500'>El telefono es requerido</p>)
-                        }
+                        <input type="number" placeholder='Telefono'
+                          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
+                          {...register("phone", {
+                            required: 'El telefono es requerido',
+                            minLength: {
+                                value: 10,
+                                message: 'El telefono debe tener al menos diez caracteres'
+                            }
+                          })} 
+                          />
+                        {errors.phone && (
+                            <p className='errors-input-register'>{errors.phone.message}</p>
+                        )}
 
-                        <input type="email" {...register("email", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' placeholder='Correo'/>
-                        {
-                            errors.email && (<p className='text-red-500'>El correo es requerido</p>)
-                        }
+                        <input type="email" placeholder='Correo'
+                          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
+                          {...register("email", {
+                            required: 'El correo es requerido',
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: 'Correo inválido'
+                            }
+                          })} 
+                          />
+                        {errors.email && (
+                            <p className='errors-input-register'>{errors.email.message}</p>
+                        )}
 
-                        <input type="password" {...register("password", {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' placeholder='Contraseña'/>
-                        {
-                            errors.password && (<p className='text-red-500'>Password is required</p>)
-                        }
+                        <input type="password" placeholder='Contraseña'
+                          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
+                          {...register("password", {
+                            required: 'La contraseña es requerida',
+                            minLength: {
+                                value: 8,
+                                message: 'La contraseña debe tener al menos 8 caracteres'
+                            }
+                          })} 
+                          />
+                        {errors.password && (
+                            <p className='errors-input-register'>{errors.password.message}</p>
+                        )}
                     </div>
                     <p className='text-center description--register-text'>
                     ¿Ya tienes una cuenta?

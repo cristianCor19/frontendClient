@@ -324,7 +324,7 @@ body{
 }
 
 
-@media (min-width: 640px){
+@media (min-width: 768px){
 	.icon-search{
 		margin-top: 27px;
 	}

@@ -79,7 +79,7 @@ function OverviewProduct() {
               </h2>
               <button className="button-love-overview" onClick={() => {
                 toggleHeart()
-                heart ? removeFromFavorite(product) : addToFavorite(product)
+                heart ? removeFromFavorite(product._id) : addToFavorite(product)
               }}>
                 {
                   

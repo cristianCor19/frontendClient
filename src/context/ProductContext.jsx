@@ -126,7 +126,6 @@ export const ProductProvider = ({ children }) => {
             console.log('delete from favorites 2')
             
             const res = await removeFavoriteRequest(favoriteProdcut, idUser)
-            console.log(res)
         }else{
             navigate('/login')
         }

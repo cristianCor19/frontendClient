@@ -6,8 +6,8 @@
   background-size: cover;
 }
 
-@media (max-height: 620px) {
-  .principal {
+@media (max-height: 700px) {
+  .register-main{
     height: 100%;
     background-attachment: scroll;
     background-position: center;

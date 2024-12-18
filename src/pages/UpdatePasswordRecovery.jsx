@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useUser } from '../context/UserContext';
+import { useSession } from '../context/SessionContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ function RecoveryPage() {
   const { id } = useParams(); // Extrae el ID de la URL
   console.log(id);
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
-  const { updatePasswordRecovery, errors: signinErrors } = useUser();
+  const { updatePasswordRecovery, errors: signinErrors } = useSession();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 

@@ -1,18 +1,15 @@
 .container--register {
   padding-top: 90px;
-
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column; /* Para móviles, apilamos los elementos */
   justify-content: center;
   align-items: center;
   padding-left: 0px;
 }
 
-
-.text-errors-register{
+.text-errors-register {
   padding: 5px;
-  max-width: 450px;
+  max-width: 400px;
   position: absolute;
   top: 140px;
   font-size: 1.1rem;
@@ -32,11 +29,12 @@
 }
 
 .text-register-description {
+  width: 300px;
   font-size: 1.2em;
   letter-spacing: 0.1em;
 }
 
-.container--input-icons{
+.container--input-icons {
   position: absolute;
   top: 45%;
   left: 10px;
@@ -47,23 +45,49 @@
 }
 
 .container-register-input-firts {
-  display: flex;
+  display: grid; /* Los inputs se apilan en móviles */
   position: relative;
-  /* margin-bottom: 40px; */
+  gap: 10px;
 }
 
-.input-register-name {
-  width: 300px;
-  margin-right: 25px;
+.container-register-input-firts input {
+  display: block;
+  width: 100%; /* Aseguramos que ocupen todo el ancho disponible */
 }
 
-.input-register-lastaname {
-  width: 300px;
+.input-register-name,
+.input-register-lastname {
+  width: 100%; /* Ajustamos a pantalla móvil */
+}
+
+.errors-input-register-name,
+.errors-input-register-lastname {
+  position: relative;
+  color: rgb(255, 20, 20); /* Cambiado a beige para móvil */
+  font-size: 17px;
+  font-weight: 500;
+  left: 10px;
+}
+
+.errors-input-register {
+  position: relative;
+  color: rgb(255, 20, 20);
+  font-size: 17px;
+  font-weight: 500;
+  left: 10px;
 }
 
 .container-register-input-second {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.container-register-input-second input[type="text"],
+.container-register-input-second input[type="number"],
+.container-register-input-second input[type="email"],
+.container-register-input-second input[type="password"] {
+  display: block;
+  width: 100%;
 }
 
 .form--register-user input[type="text"],
@@ -73,46 +97,30 @@
 .form--register-user button[type="submit"] {
   border: 0;
   background: none;
-
-  /* margin: 20px auto; */
-  margin-bottom: 40px;
-  padding: 10px 10px;
+  margin-bottom: 10px;
+  padding: 7.5px 10px;
   text-align: center;
-  /* font-size: 1.2em; */
   border: 1.8px solid #ffffffdc;
-
   outline: none;
   color: white;
   border-radius: 2px;
   font-size: 1em;
 }
 
-.container-register-input-second input[type="text"],
-.container-register-input-second input[type="number"],
-.container-register-input-second input[type="email"],
-.container-register-input-second input[type="password"] {
-  display: block;
-  width: 520px;
-}
-
 .container--register ::placeholder {
   color: #fff;
-  /* font-size: 1.2em; */
   letter-spacing: 0.2em;
   font-weight: bold;
   text-align: center;
-  margin-left: 50px;
 }
 
 .container-button-register {
-  /* display: flex; */
   text-align: center;
   color: #fff;
   align-items: center;
 }
 
 .form--register-user button[type="submit"] {
-  /* margin-top: 20px; */
   display: block;
   width: 300px;
   border: 2.8px solid #ffffffdc;
@@ -136,41 +144,56 @@
   font-size: 1.2rem;
 }
 
-@media (max-width: 600px) {
+/* Estilos para pantallas mayores a 600px */
+@media (min-width: 600px) {
+  .text-register-description {
+    width: 520px;
+    
+  }
+
   .form--register-user input[type="email"],
   .form--register-user input[type="text"],
   .form--register-user input[type="number"],
   .form--register-user input[type="password"] {
     margin: 20px auto;
-    margin-bottom: 10px;
-    padding: 7.5px 10px;
-    width: 320px;
+    margin-bottom: 40px;
+    padding: 10px 10px;
+    width: 520px;
   }
 
-  .text-errors-register{
+  .text-errors-register {
     padding: 5px;
-    max-width: 400px;
+    max-width: 450px;
     position: absolute;
     top: 140px;
   }
 
   .container-register-input-firts {
-    display: grid;
+    display: flex; /* Inputs en una fila */
     position: relative;
+    gap: 25px;
+    align-items: flex-start;
+    width: 520px;
   }
 
-  .container-register-input-second{
-    margin-bottom: 20px;
+  .input-register-name,
+  .input-register-lastname {
+    width: 300px;
   }
 
-  /* .container--login {
-      padding-top: 140px;
-    } */
+  .errors-input-register-name {
+    position: absolute;
+    top: 70%;
+    left: 0;
+  }
 
-  /* .container--login ::placeholder {
-      color: white;
-      font-size: 0.9em;
-      letter-spacing: 0.2em;
-      font-weight: bold;
-    } */
+  .errors-input-register-lastname {
+    position: absolute;
+    top: 70%;
+    left: 275px;
+  }
+
+  .container-register-input-second {
+    margin-bottom: 40px;
+  }
 }

@@ -30,14 +30,10 @@ export const UserProvider = ({children}) => {
     const signup = async (user) => {
         try {
             const res = await registerUserRequest(user)
-            console.log(res);
-            if(res.data.status === true) {
-                setRegistrationSuccess(true)
-
-            }
+            
+            setRegistrationSuccess(true)
+            
         } catch (error) {
-
-            console.log(error);
             
             setErrors(Array.isArray(error.response.data)
             ? error.response.data

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useProduct } from '../context/ProductContext';
 
 
-function CardSearchProduct({product}){
+function CardFavoriteProduct({product}){
     const { addToCart, removeFromFavorite, } = useProduct();
 
     return(
@@ -42,4 +42,4 @@ function CardSearchProduct({product}){
     )
 }
 
-export default CardSearchProduct
+export default CardFavoriteProduct
