@@ -48,6 +48,14 @@ function Navbar() {
     }
   }
 
+  // function to create a event key "enter" for search products
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      searchProduct()
+    }
+  }
+
+
 
   useEffect(() => {
     //Verificar si los clics se realizo fuera de la ventana emergente del carrito
@@ -105,7 +113,9 @@ function Navbar() {
                       <div className="relative ">
 
                         <input type="text" className='input-search mt-4' placeholder='Buscar productos,marcas y demas' value={propSearch}
-                        onChange={(e) => setPropSearch(e.target.value)}/>
+                        onChange={(e) => setPropSearch(e.target.value)}
+                        onKeyUp={handleKeyPress}
+                        />
                         <button className='p-0 bg-white icon-search' onClick={() =>{
 
                           searchProduct()
@@ -323,7 +333,9 @@ function Navbar() {
                   <div className="relative">
 
                     <input type="text" className='input-search mt-0' placeholder='Buscar productos,marcas y demas' value={propSearch}
-                    onChange={(e) => setPropSearch(e.target.value)}/>
+                    onChange={(e) => setPropSearch(e.target.value)}
+                    onKeyUp={handleKeyPress}
+                    />
                     <button className=' bg-white icon-search' onClick={() =>{
 
                       searchProduct()
