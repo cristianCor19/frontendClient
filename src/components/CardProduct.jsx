@@ -107,10 +107,7 @@ function CardProduct ({product}){
                                 <Link to={`/overview/${product._id}`}>
                                 <img className="opacity-70" src="img/eye.svg" alt="" />
                                 </Link>
-                                <div className="test-1">
-
-                                <i className="fa-regular fa-heart"></i>
-                                </div>
+                                
                             </button>
 
                         </div>

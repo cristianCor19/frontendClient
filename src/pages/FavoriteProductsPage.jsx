@@ -13,7 +13,7 @@ function FavoriteProductsPage(){
         setLoading(false);
         }
         loadFavorites();
-    }, [getFavorites]);
+    }, []);
     return(
         <div className="margin-all-favorite-products">
             {favorite.length === 0 ? (
