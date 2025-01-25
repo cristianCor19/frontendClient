@@ -173,7 +173,7 @@ export const ProductProvider = ({ children }) => {
 
             if(isAuthenticated){            
                 const res = await getProductsCartRequest(token)
-            
+
                 const dataCart = res.data.data.carts
                 const dataTotal = res.data.data.total
                 setTotal(dataTotal)
