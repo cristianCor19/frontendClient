@@ -1,7 +1,7 @@
 import {useEffect} from "react";
-import slider1 from "../assets/img/slider-1.webp";
-import slider2 from "../assets/img/slider-2.webp";
-import slider3 from "../assets/img/slider-3.webp";
+import slider1 from "../assets/img/slider-1.avif";
+import slider2 from "../assets/img/slider-2.avif";
+import slider3 from "../assets/img/slider-3.avif";
 
 var currentSlideId = 1;
 
@@ -41,19 +41,19 @@ function SliderComponent () {
         <div className="relative main-slider">
            <ul id="slider" className="">
                 <li className="h-[70vh] relative">
-                    <img className="h-full object-cover w-full slider-image" src={slider2} loading="lazy" alt="" />
+                    <img className="h-full object-cover w-full slider-image" src={slider2} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold  my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
                 <li className="h-[70vh] relative hidden">
-                    <img className="h-full object-cover w-full slider-image" src={slider3} alt="" loading="lazy"/>
+                    <img className="h-full object-cover w-full slider-image" src={slider3} alt="" />
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold  my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
                 </li>    
                 <li className="h-[70vh] relative hidden">
-                    <img className="h-full object-cover w-full slider-image" src={slider1} alt="" loading="lazy"/>
+                    <img className="h-full object-cover w-full slider-image" src={slider1} alt=""/>
                     <div className="absolute top-0 left-0 h-full w-full flex">
                         <h2 className="text-4xl font-bold my-auto w-full text-center p-20 text-slider">La mejor tecnología al alcance de tus manos </h2>
                     </div>
