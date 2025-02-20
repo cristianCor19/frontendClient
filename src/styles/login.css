@@ -2,7 +2,7 @@
 .principal {
   height: 100vh;
   background: linear-gradient(rgba(30, 77, 109, 0.78), rgba(2, 55, 90, 0.78)),
-    url(/img/fondo1.jpg) no-repeat center center fixed;
+    url(/img/fondo1.avif) no-repeat center center fixed;
   background-size: cover;
 }
 
