@@ -41,13 +41,15 @@ export const ProductProvider = ({ children }) => {
     const [total, setTotal] = useState(0);
     const navigate = useNavigate()
     const [favorite, setFavorites] = useState([]);
+    const [isLoadingFavorites, setIsLoadingFavorites] = useState(false);
 
     
 
-    const getProducts = async () => {
+    const getProducts = async (category) => {
         try {
+            console.log(category);
             
-            const res = await getProductsRequest();
+            const res = await getProductsRequest(category);
             setProducts(res.data.data);
         } catch (error) {
             console.log(error);
@@ -110,37 +112,47 @@ export const ProductProvider = ({ children }) => {
     };
 
     const addToFavorite = async (favoriteProdcut) => {
-        if(isAuthenticated){
-            console.log(favoriteProdcut._id);
-            const res = await sendFavoritesRequest(favoriteProdcut,  profile._id)
-        }else{
+
+        if(!isAuthenticated) {
             navigate('/login')
+            return;
+        }
+
+        try {
+            await sendFavoritesRequest(favoriteProdcut, profile._id);
+            await getFavorites();
+        } catch (error) {
+            console.log();
         }
     }
 
     const removeFromFavorite = async (favoriteProdcut) => {
-        if(isAuthenticated){
-            const idUser = profile._id;
-            console.log('delete from favorites')
-            console.log(favoriteProdcut);
-            console.log('delete from favorites 2')
-            
-            const res = await removeFavoriteRequest(favoriteProdcut, idUser)
-        }else{
-            navigate('/login')
+        if (!isAuthenticated) {
+            navigate('/login');
+            return;
+        }
+        try {
+            await removeFavoriteRequest(favoriteProdcut, profile._id);
+            await getFavorites();
+        } catch (error) {
+            console.error();
         }
     }
 
     const getFavorites = async function(){
+        if (!isAuthenticated) return;
         try {
+            setIsLoadingFavorites(true);
             const token = localStorage.getItem('token');
-            const res = await getProductsFavoriteRequest(token)
-            // console.log(res.data.data);
+            const res = await getProductsFavoriteRequest(token);
             
             setFavorites(res.data.data)
             
         } catch (error) {
             console.log(error.message)
+            setFavorites([]);
+        } finally {
+            setIsLoadingFavorites(false);
         }
     }
 
@@ -245,14 +257,12 @@ export const ProductProvider = ({ children }) => {
 
     useEffect( () => {
         async function loadFavorite(){
-            const token = localStorage.getItem('token');
-
-            if (token) {
+            if (isAuthenticated) {
                 
-                getFavorites()
+                await getFavorites();
             }else{
 
-                setFavorites([])
+                setFavorites([]);
             }
             
         }
@@ -273,6 +283,7 @@ export const ProductProvider = ({ children }) => {
                 cartProducts,
                 prodcuctSearch,
                 favorite,
+                isLoadingFavorites,
                 getProducts,
                 getProduct,
                 getSearchProduct,
