@@ -1,6 +1,6 @@
 import axios from './axios'
 //
-export const getProductsRequest = async() => axios.get(`/product/`)
+export const getProductsRequest = async(category) => axios.get(`/product?category=${category}`)
 export const getProductRequest = async(id) => axios.get(`/product/${id}`)
 export const getProductsFavoriteRequest = async(token) => axios.get(`/product/get_favorites/${token}`)
 
