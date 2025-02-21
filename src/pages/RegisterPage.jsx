@@ -42,9 +42,15 @@ function RegisterPage(){
     },[registrationSuccess, navigate, setRegistrationSuccess]);
 
     return(
-        <div className='principal register-main'>
+        <div className='principal register-main '
+        
+        >
            
-            <div className='container--register'>
+            <div className='container--register absolute inset-0 bg-cover bg-center '
+                style={{
+                    backgroundImage: "linear-gradient(rgba(30, 77, 109, 0.78), rgba(2, 55, 90, 0.78)), url(/img/fondo1.avif) "
+                }}
+            >
                 {
                     registersErrors.map((error, i) => (
                       
@@ -62,47 +68,22 @@ function RegisterPage(){
                         </p>
 
                     </div>
-                    <div className='container-register-input-firts'>
 
+                    <div className='container-register-input-second'>
                         <input type="text" onKeyDown={justLetters} 
-                          placeholder='Nombre' className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-name' 
+                          placeholder='Nombre' className='w-full bg-zinc-700 text-white px-4 rounded-md input-register-name' 
                           {...register("name",{
                             required: "El nombre es requerido"
 
                           })} 
                         />
                         {errors.name && (
-                            <p className='errors-input-register-name'>{errors.name.message}</p>
+                            <p className='errors-input-register'>{errors.name.message}</p>
                         )}
 
-                        <input type="text" onKeyDown={justLetters}
-                          placeholder='Apellido' className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 input-register-lastname' 
-                          {...register("lastname", {
-                            required: 'El apellido es requerido'
-                          })} 
-                        />
-                        {errors.lastname && (
-                            <p className='errors-input-register-lastname'>{errors.lastname.message}</p>
-                        )}
-                    </div>
-                    <div className='container-register-input-second'>
-
-                        <input type="number" placeholder='Telefono'
-                          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
-                          {...register("phone", {
-                            required: 'El telefono es requerido',
-                            minLength: {
-                                value: 10,
-                                message: 'El telefono debe tener al menos diez caracteres'
-                            }
-                          })} 
-                          />
-                        {errors.phone && (
-                            <p className='errors-input-register'>{errors.phone.message}</p>
-                        )}
 
                         <input type="email" placeholder='Correo'
-                          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
+                          className='w-full bg-zinc-700 text-white px-4 rounded-md' 
                           {...register("email", {
                             required: 'El correo es requerido',
                             pattern: {
@@ -116,7 +97,7 @@ function RegisterPage(){
                         )}
 
                         <input type="password" placeholder='Contraseña'
-                          className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2' 
+                          className='w-full bg-zinc-700 text-white px-4 rounded-md ' 
                           {...register("password", {
                             required: 'La contraseña es requerida',
                             minLength: {

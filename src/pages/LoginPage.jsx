@@ -35,8 +35,14 @@ function LoginPage() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className='principal'>
-      <div className="container--login">
+    <div className='absolute inset-0 bg-cover bg-center flex items-center justify-center h-screen text-center'
+    style={{
+      backgroundImage: "linear-gradient(rgba(30, 77, 109, 0.78), rgba(2, 55, 90, 0.78)), url(/img/fondo1.avif) "
+    }}
+    >
+      <div className="container--login"
+        
+      >
         {signinErrors.map((error, i) => (
           <div 
             className="bg-red-500 text-white text-center text-errors" 
@@ -46,7 +52,7 @@ function LoginPage() {
           </div>
         ))}
 
-        <form onSubmit={onSubmit} className="form--box">
+        <form onSubmit={onSubmit} className="form--box ">
           <div className="container--input">
             <input
               type="email"
