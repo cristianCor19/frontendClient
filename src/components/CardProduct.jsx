@@ -95,18 +95,14 @@ function CardProduct({ product }) {
               <button className="button-primary" onClick={handleAddToCart}>
                 Agregar
               </button>
-              <button className="button-icon">
-                <button className="button-icon" onClick={handleFavoriteToggle}>
-                  <box-icon
-                    type={iconHeart ? "solid" : "regular"}
-                    name="heart"
-                  ></box-icon>
-                </button>
+              <button className="button-icon" onClick={handleFavoriteToggle}>
+                <box-icon
+                  type={iconHeart ? "solid" : "regular"}
+                  name="heart"
+                ></box-icon>
               </button>
               <button className="button-icon">
-                <Link to={`/overview/${product._id}`}>
-                  <img className="opacity-70" src="img/eye.svg" alt="" />
-                </Link>
+                <img className="opacity-70" src="img/eye.svg" alt="" />
               </button>
             </div>
           </div>
