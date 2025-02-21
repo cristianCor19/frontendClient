@@ -44,11 +44,7 @@
   gap: 40px;
 }
 
-.container-register-input-firts {
-  display: grid; /* Los inputs se apilan en móviles */
-  position: relative;
-  gap: 10px;
-}
+
 
 .container-register-input-firts input {
   display: block;
@@ -79,7 +75,7 @@
 
 .container-register-input-second {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .container-register-input-second input[type="text"],
@@ -98,7 +94,7 @@
   border: 0;
   background: none;
   margin-bottom: 10px;
-  padding: 7.5px 10px;
+  padding: 7.5px 0px;
   text-align: center;
   border: 1.8px solid #ffffffdc;
   outline: none;
@@ -148,15 +144,15 @@
 @media (min-width: 600px) {
   .text-register-description {
     width: 520px;
-    
+
   }
 
   .form--register-user input[type="email"],
   .form--register-user input[type="text"],
   .form--register-user input[type="number"],
   .form--register-user input[type="password"] {
-    margin: 20px auto;
-    margin-bottom: 40px;
+    margin: 5px auto;
+    margin-bottom: 15px;
     padding: 10px 10px;
     width: 520px;
   }
@@ -169,29 +165,22 @@
   }
 
   .container-register-input-firts {
-    display: flex; /* Inputs en una fila */
+    display: flex;
     position: relative;
     gap: 25px;
     align-items: flex-start;
     width: 520px;
+    /* padding: 20px 0px; */
   }
 
-  .input-register-name,
-  .input-register-lastname {
-    width: 300px;
-  }
 
   .errors-input-register-name {
     position: absolute;
     top: 70%;
     left: 0;
+    padding: 00px 0px;
   }
 
-  .errors-input-register-lastname {
-    position: absolute;
-    top: 70%;
-    left: 275px;
-  }
 
   .container-register-input-second {
     margin-bottom: 40px;

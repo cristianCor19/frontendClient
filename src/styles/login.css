@@ -1,11 +1,4 @@
 
-.principal {
-  height: 100vh;
-  background: linear-gradient(rgba(30, 77, 109, 0.78), rgba(2, 55, 90, 0.78)),
-    url(/img/fondo1.avif) no-repeat center center fixed;
-  background-size: cover;
-}
-
 @media (max-height: 700px) {
   .register-main{
     height: 100%;
@@ -31,10 +24,6 @@
   padding: 10px;
   position: absolute;
   top: 26%;
-}
-
-.form--box{
-  margin-top: -50px;
 }
 
 .cabecera--form {
