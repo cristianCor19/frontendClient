@@ -47,7 +47,6 @@ export const ProductProvider = ({ children }) => {
 
     const getProducts = async (category) => {
         try {
-            console.log(category);
             
             const res = await getProductsRequest(category);
             setProducts(res.data.data);
@@ -67,7 +66,6 @@ export const ProductProvider = ({ children }) => {
     };
 
     const getSearchProduct =  async(search) => {
-        console.log(search);
         const res = await getSearchProductRequest(search)
         // console.log(res.status);
         if(res.status === 200){
@@ -244,13 +242,14 @@ export const ProductProvider = ({ children }) => {
 
     useEffect( () => {
         async function loadDataCart(){
+            if(isAuthenticated){
                 const token = localStorage.getItem('token');
-
-    
-                console.log('test load');
+                // console.log('test load');
                 const res = await getProductsCartRequest(token)
                 const dataCart = res.data.data.carts
                 setCountProducts(dataCart.length)
+            }
+
         }
         loadDataCart()
     },[isAuthenticated])
