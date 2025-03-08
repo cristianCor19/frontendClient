@@ -36,7 +36,7 @@ const queryClient = new QueryClient({
     },
   },
 })
-
+//prueba
 function App(){
   
   return (
