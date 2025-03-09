@@ -37,13 +37,30 @@ function CardSearchProduct({ product }) {
   return (
     <div className="card-search-product-general">
       <Link to={`/overview/${product._id}`}>
-        <div className="grid container--image-search margin-general">
+        <div className="container--image-search margin-general">
           <div className="image-search-product">
             <img className="size-image-product" src={product.image} alt="" />
           </div>
           <div className="description-product-search">
-            <div className="text-search-descrition ">
+            <div className="description-text">
               <h2 className="product-search-title">{product.name}</h2>
+              <span className="text-xl font-bold">{product.price}</span>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="text-sm line-through opacity-40">25000</span>
+                <span className="discount-percent">save 20%</span>
+              </div>
+              <span className="flex item-center mt-1">
+                <img src={start} alt="" />
+                <img src={start} alt="" />
+                <img src={start} alt="" />
+                <img src={start} alt="" />
+                <img src={start} alt="" />
+
+                <span className="text-xs ml-2 text-gray-500">(1000)</span>
+              </span>
+            </div>
+            <div className="icon-search-love">
+              
 
               <div className="button-love-search">
                 <button
@@ -62,22 +79,7 @@ function CardSearchProduct({ product }) {
                 </button>
               </div>
             </div>
-            <div>
-              <span className="text-xl font-bold">{product.price}</span>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="text-sm line-through opacity-40">25000</span>
-                <span className="discount-percent">save 20%</span>
-              </div>
-            </div>
-            <span className="flex item-center mt-1">
-              <img src={start} alt="" />
-              <img src={start} alt="" />
-              <img src={start} alt="" />
-              <img src={start} alt="" />
-              <img src={start} alt="" />
-
-              <span className="text-xs ml-2 text-gray-500">(1000)</span>
-            </span>
+            
           </div>
         </div>
 
