@@ -19,7 +19,7 @@ function MonitoresPage() {
 
 
   return (
-    <div className="grid  cols-main test-al margin-all-page">
+    <div className="grid  cols-main margin-all-page">
       {products.length === 0 ? (
         <p className="">No hay productos</p>
       ) : (

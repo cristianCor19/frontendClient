@@ -12,6 +12,11 @@
 	box-sizing: border-box;
 }
 
+
+.cols-main{
+	margin: 0 auto;
+}
+
 html{
 	font-size: 15px;
 }
@@ -376,17 +381,5 @@ body{
 	.navbar-margin{
 		max-width: 1400px;
 	}
-}
-
-@media (min-width: 1900px){
-	.container-test-1 .margin-all-page{
-		margin-left: 11%;
-	}
-	
-
-	/* .navbar-margin{
-		margin-left: 10%;
-		margin-right: 12%;
-	} */
 }
 
